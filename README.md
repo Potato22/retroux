@@ -6,4 +6,4 @@ https://www.youtube.com/watch?v=JW4epapyoT4
 
 I am fairly satisfied with it, but I have a longing urge to somehow make it interactive.
 
-This is my attempt to make that a reality, I'll be trying to replicate all of it in pure html elements instead of canvas.
+This is my attempt to make that a reality, I'll be trying to replicate all of it in pure html elements instead of `<canvas>`.
