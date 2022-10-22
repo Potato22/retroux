@@ -1,0 +1,155 @@
+body {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    overflow-y: hidden;
+    background: rgb(29, 29, 29);
+}
+:root {
+    --iconOrnament: rgb(100, 100, 100);
+    --inactiveFill: rgb(53, 53, 53);
+    --inactiveStroke: white;
+    --inactiveText: white;
+    //animation
+    --fps: steps(15);
+    --inactiveHighlight: translateX(-70px);
+    --brgb: bgRGB .5s infinite var(--fps);
+    --srgb: strokeRGB .5s infinite var(--fps);
+    --flickerText: textFlicker .1s infinite var(--fps);
+    --flickerFill: fillFlicker .1s infinite var(--fps);
+}
+[button-state=true] {
+    --fps: steps(2);
+    --inactiveFill: rgb(241, 241, 241);
+    --inactiveStroke: rgb(0, 0, 0);
+    --inactiveText: rgb(49, 49, 49);
+    --inactiveHighlight: translateX(0px);
+    --buttonJump: jump .1s 1 var(--fps);
+}
+@keyframes jump {
+    0% {
+        transform: translateX(0px);
+    }
+    50% {
+        transform: translateX(30px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+.buttonEvent, .menuButton[poke=true] {
+    animation: buttonClick .2s 1 steps(2)
+}
+@keyframes buttonClick {
+    0% {
+        stroke: white;
+        fill: rgb(53, 53, 53);
+    }
+    20% {
+        stroke: rgb(53, 53, 53);
+        fill: white;
+    }
+    40% {
+        stroke: rgb(53, 53, 53);
+        fill: white;
+    }
+    60% {
+        stroke: white;
+        fill: rgb(53, 53, 53);
+    }
+    80% {
+        stroke: rgb(53, 53, 53);
+        fill: white;
+    }
+    100% {
+        stroke: white;
+        fill: rgb(53, 53, 53);
+    }
+}
+@keyframes bgRGB {
+    0% {
+        background: rgb(255, 42, 42);
+    }
+    11% {
+        background: rgb(255, 158, 67);
+    }
+    22% {
+        background: rgb(255, 228, 73);
+    }
+    33% {
+        background: rgb(109, 255, 73);
+    }
+    50% {
+        background: rgb(104, 232, 255);
+    }
+    66% {
+        background: rgb(72, 90, 255);
+    }
+    77% {
+        background: rgb(195, 44, 255);
+    }
+    88% {
+        background: rgb(255, 68, 155);
+    }
+    100% {
+        background: rgb(255, 42, 42);
+    }
+}
+@keyframes fillRGB {
+    0% {
+        fill: rgb(255, 42, 42);
+    }
+    11% {
+        fill: rgb(255, 158, 67);
+    }
+    22% {
+        fill: rgb(255, 228, 73);
+    }
+    33% {
+        fill: rgb(109, 255, 73);
+    }
+    50% {
+        fill: rgb(104, 232, 255);
+    }
+    66% {
+        fill: rgb(72, 90, 255);
+    }
+    77% {
+        fill: rgb(195, 44, 255);
+    }
+    88% {
+        fill: rgb(255, 68, 155);
+    }
+    100% {
+        fill: rgb(255, 42, 42);
+    }
+}
+@keyframes strokeRGB {
+    0% {
+        stroke: rgb(255, 42, 42);
+    }
+    11% {
+        stroke: rgb(255, 158, 67);
+    }
+    22% {
+        stroke: rgb(255, 228, 73);
+    }
+    33% {
+        stroke: rgb(109, 255, 73);
+    }
+    50% {
+        stroke: rgb(104, 232, 255);
+    }
+    66% {
+        stroke: rgb(72, 90, 255);
+    }
+    77% {
+        stroke: rgb(195, 44, 255);
+    }
+    88% {
+        stroke: rgb(255, 68, 155);
+    }
+    100% {
+        stroke: rgb(255, 42, 42);
+    }
+}

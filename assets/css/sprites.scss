@@ -1,0 +1,115 @@
+//icons
+.iconCircle {
+    fill: var(--iconOrnament);
+}
+
+.iconMode {
+    fill: var(--iconOrnament);
+    position: absolute;
+}
+
+//properties
+.iconSpinner {
+    transform: rotate(0deg);
+    animation: iconSpinner .4167s infinite var(--fps);
+    opacity: 1;
+}
+
+.iconBoombox {
+    transform: scale(1);
+    animation: iconBoombox .4167s infinite var(--fps);
+    opacity: 0;
+}
+
+.iconData {
+    fill: none;
+    stroke-width: 5.6004;
+    stroke: var(--iconOrnament);
+    stroke-dasharray: 53;
+    stroke-dashoffset: 53;
+    animation: iconData .4167s infinite alternate var(--fps);
+    opacity: 0;
+}
+
+@keyframes iconSpinner {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes iconBoombox {
+    to {
+        transform: scale(.9);
+    }
+}
+
+@keyframes iconData {
+    from {
+        stroke-dashoffset: 53;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.buttonComponent {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+    animation: var(--buttonJump);
+    width: 500px;
+    cursor: pointer;
+}
+
+.menuButton {
+    stroke-width: .7;
+    stroke: var(--inactiveStroke);
+    fill: var(--inactiveFill);
+}
+
+.buttonText {
+    position: absolute;
+    color: var(--inactiveText);
+    font-family: 'ACES07';
+    font-size: 3.4rem;
+    margin-left: .5em;
+    margin-top: .2em;
+    user-select: none;
+}
+
+.buttonHighlight {
+    width: 80px;
+    height: 80px;
+    animation: var(--brgb);
+    transform: var(--inactiveHighlight);
+    margin-left: -4em;
+    margin-top: .3em;
+    z-index: -1;
+}
+
+.grid {
+    z-index: -5;
+    animation: fillRGB 15s infinite var(--fps), randomizeXYZ 15s infinite cubic-bezier(.39,-0.01,.61,1);
+}
+@keyframes randomizeXYZ {
+    0% {
+        transform: rotate3d(-1, 1, 0, -50deg) scale(2) translate(10px, 100px);
+    }
+    25% {
+        transform: rotate3d(1, 1, 1, 20deg) scale(1.7) translate(150px, 90px);
+    }
+    50% {
+        transform: rotate3d(-1, 1, 0, 20deg) scale(2) translate(200px, 170px);
+    }
+    75% {
+        transform: rotate3d(-1, 1, -1, -30deg) scale(2) translate(100px, 90px);
+    }
+    100% {
+        transform: rotate3d(-1, 1, 0, -50deg) scale(2) translate(10px, 100px);
+    }
+}

@@ -1,0 +1,113 @@
+@font-face {
+  font-family: ACES07;
+  src: url("/assets/fonts/ACES07_Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: Orbitron-Black;
+  src: url("/assets/fonts/Orbitron-Black.ttf") format("truetype");
+}
+.wrapper {
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.cover {
+  position: absolute;
+  background: black;
+  width: 1024px;
+  height: 768px;
+  z-index: 99;
+  color: white;
+  font-family: "ACES07";
+}
+
+.fader {
+  position: absolute;
+  background: black;
+  width: 1024px;
+  height: 768px;
+  z-index: 98;
+  opacity: 1;
+  pointer-events: none;
+  transform: scale(1.01);
+}
+
+[started=true] {
+  animation: init 0.4s 0.2s 1 forwards steps(6);
+}
+
+@keyframes init {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.mainWindow {
+  position: relative;
+  width: 1024px;
+  height: 768px;
+  border: solid 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bglive {
+  position: absolute;
+  width: 1024px;
+  height: 768px;
+  background: white;
+}
+
+#sideOrnament {
+  position: absolute;
+  fill: black;
+  z-index: 1;
+  margin-left: -0.1em;
+  transform: scaleY(1.01);
+}
+
+#iconOrnament {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 2rem;
+  padding-top: 2rem;
+  z-index: 1;
+}
+
+#menuButtons {
+  z-index: 2;
+  padding-left: 3em;
+}
+
+.pageName {
+  font-family: "Orbitron";
+  font-weight: 700;
+  margin-left: 0.3em;
+  font-size: 5rem;
+  user-select: none;
+  color: rgb(59, 59, 59);
+}
+
+#menuButtons > .buttonComponent {
+  --ladderLimit: 7em;
+}
+#menuButtons > .buttonComponent:nth-child(2) {
+  margin-left: calc(var(--ladderLimit) * 1);
+}
+#menuButtons > .buttonComponent:nth-child(3) {
+  margin-left: calc(var(--ladderLimit) * 2);
+}
+#menuButtons > .buttonComponent:nth-child(4) {
+  margin-left: calc(var(--ladderLimit) * 3);
+}
+#menuButtons > .buttonComponent:nth-child(5) {
+  margin-left: calc(var(--ladderLimit) * 4);
+}
+
+/*# sourceMappingURL=index.css.map */
