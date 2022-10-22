@@ -5,7 +5,6 @@ body {
   overflow-y: hidden;
   background: rgb(29, 29, 29);
 }
-
 :root {
   --iconOrnament: rgb(100, 100, 100);
   --inactiveFill: rgb(53, 53, 53);
@@ -18,7 +17,6 @@ body {
   --flickerText: textFlicker .1s infinite var(--fps);
   --flickerFill: fillFlicker .1s infinite var(--fps);
 }
-
 [button-state=true] {
   --fps: steps(2);
   --inactiveFill: rgb(241, 241, 241);

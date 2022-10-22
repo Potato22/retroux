@@ -6,6 +6,7 @@
   font-family: Orbitron-Black;
   src: url("/assets/fonts/Orbitron-Black.ttf") format("truetype");
 }
+
 .wrapper {
   position: relative;
   display: grid;
