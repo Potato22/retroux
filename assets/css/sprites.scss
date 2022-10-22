@@ -1,3 +1,8 @@
+@font-face {
+    font-family: ACES07_Regular;
+    src: url("assets/fonts/ACES07_Regular.ttf") format("truetype");
+}
+
 //icons
 .iconCircle {
     fill: var(--iconOrnament);
@@ -94,21 +99,26 @@
 
 .grid {
     z-index: -5;
-    animation: fillRGB 15s infinite var(--fps), randomizeXYZ 15s infinite cubic-bezier(.39,-0.01,.61,1);
+    animation: fillRGB 15s infinite var(--fps), randomizeXYZ 15s infinite cubic-bezier(.39, -0.01, .61, 1);
 }
+
 @keyframes randomizeXYZ {
     0% {
         transform: rotate3d(-1, 1, 0, -50deg) scale(2) translate(10px, 100px);
     }
+
     25% {
         transform: rotate3d(1, 1, 1, 20deg) scale(1.7) translate(150px, 90px);
     }
+
     50% {
         transform: rotate3d(-1, 1, 0, 20deg) scale(2) translate(200px, 170px);
     }
+
     75% {
         transform: rotate3d(-1, 1, -1, -30deg) scale(2) translate(100px, 90px);
     }
+
     100% {
         transform: rotate3d(-1, 1, 0, -50deg) scale(2) translate(10px, 100px);
     }
