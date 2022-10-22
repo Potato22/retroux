@@ -1,7 +1,7 @@
 //buttonStates
 $('.buttonComponent').on('mouseenter mouseleave click', function (e) {
-    var select = new Audio('/assets/audio/select.ogg')
-    var enter = new Audio('/assets/audio/enter.ogg')
+    var select = new Audio('assets/audio/select.ogg')
+    var enter = new Audio('assets/audio/enter.ogg')
     var selectv = 1
     var enterv = 1
     switch (e.type) {

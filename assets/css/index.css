@@ -1,10 +1,10 @@
 @font-face {
   font-family: ACES07;
-  src: url("/assets/fonts/ACES07_Regular.ttf") format("truetype");
+  src: url("assets/fonts/ACES07_Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: Orbitron-Black;
-  src: url("/assets/fonts/Orbitron-Black.ttf") format("truetype");
+  src: url("assets/fonts/Orbitron-Black.ttf") format("truetype");
 }
 
 .wrapper {

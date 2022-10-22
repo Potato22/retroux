@@ -1,5 +1,5 @@
-const bgm = new Audio('/assets/audio/dv-i_configuration_bitcrush.mp3')
-const enter = new Audio('/assets/audio/enter.ogg')
+const bgm = new Audio('assets/audio/dv-i_configuration_bitcrush.mp3')
+const enter = new Audio('assets/audio/enter.ogg')
 const bgmv = .6 //for now
 $(() => {
     $('.grid').hide();
