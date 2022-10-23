@@ -23,17 +23,66 @@
     <link rel="stylesheet" href="assets/css/sprites.css">
 
     <script src="assets/js/library/jquery.min.js"></script>
+    <script src="assets/js/library/howler.min.js"></script>
     <script src="assets/js/buttons.js" async></script>
     <script src="assets/js/driver.js" defer></script>
+
+    <script defer>
+        var readyState = false
+        minload();
+
+        function minload() {
+            if (readyState) {
+                return;
+            } else {
+                $('.cover').css('pointer-events', 'none');
+                setTimeout(() => {
+                    $('.minimalLoading').html('[&nbsp;.&nbsp;&nbsp;&nbsp;]')
+                    setTimeout(() => {
+                        $('.minimalLoading').html('[&nbsp;&nbsp;.&nbsp;&nbsp;]')
+                        setTimeout(() => {
+                            $('.minimalLoading').html('[&nbsp;&nbsp;&nbsp;.&nbsp;]')
+                            minload()
+                        }, 200);
+                    }, 200);
+                }, 200);
+            }
+        }
+
+        $(() => {
+            function ready() {
+                setTimeout(() => {
+                    $('.minimalLoading').html('[READY]<br>Click to start.');
+                    $('.cover').css('pointer-events', 'auto');
+                }, 600);
+            }
+            readyState = true
+            ready()
+        })
+    </script>
 </head>
 
 <body>
     <div class="wrapper">
-        <div class="cover">INTERACTIVE RETRO STYLIZED UX MOCKUP (4:3) 768p BY POTTO<br><b>[!] build may not work
-                with devices screen smaller than 720p viewport.</b><br><br>###################<br>Music
-            "Configuration", by DV-i<br>###################<br><br>BUILD IS STILL UNFINISHED! current
-            todos:<br>-button events<br>-scene states<br>-background<br>started on 22 Oct 2022<br><br><br> Click to
-            start.</div>
+        <div class="cover">
+            INTERACTIVE RETRO STYLIZED UX MOCKUP (4:3) 768p BY POTTO<br>
+            <b>[!] build may not work properly with devices screen smaller than 720p viewport.</b>
+            <br>
+            <br>
+            ###################<br>
+            Music "Configuration", by DV-i<br>
+            ###################<br>
+            <br>BUILD IS STILL UNFINISHED! current
+            todos:
+            <br>-button events
+            <br>-scene states
+            <br>-background
+            <br>started on 22 Oct 2022
+            <br>
+            <br>
+            <br>
+            <div class="minimalLoading"></div>
+        </div>
         <div class="fader" started="false"></div>
         <div class="mainWindow">
             <div id="screenOrnaments">

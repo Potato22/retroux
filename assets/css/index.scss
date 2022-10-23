@@ -25,6 +25,7 @@
     opacity: 1;
     pointer-events: none;
     transform: scale(1.01);
+    
 }
 [started=true] {
     animation: init .4s .2s 1 forwards steps(6);

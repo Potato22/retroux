@@ -23,7 +23,7 @@ body {
     --inactiveStroke: white;
     --inactiveText: white;
     //animation
-    --fps: steps(15);
+    --fps: steps(10);
     --inactiveHighlight: translateX(-70px);
     --brgb: bgRGB .5s infinite var(--fps);
     --srgb: strokeRGB .5s infinite var(--fps);
@@ -49,7 +49,7 @@ body {
         transform: translateX(0px);
     }
 }
-.buttonEvent, .menuButton[poke=true] {
+.menuButton[poke=true] {
     animation: buttonClick .2s 1 steps(2)
 }
 @keyframes buttonClick {
