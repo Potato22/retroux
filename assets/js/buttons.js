@@ -3,7 +3,6 @@ $(() => {
         switch (e.type) {
             case 'mouseenter':
                 $(this).attr('button-state', true);
-                $(this).css('z-index', '100');
                 select.play();
                 break;
             case 'mouseleave':
@@ -11,10 +10,26 @@ $(() => {
                 break;
             case 'click':
                 $(this).closest('.buttonComponent').children('.menuButton').attr('poke', true);
+                buttonData =$(this).attr('buttonData')
+                console.log('buttonData = ' + buttonData)
+                setTimeout(() => {
+                    buttonEvent()
+                }, 100);
                 enter.play();
                 setTimeout(() => {
-                    $('.menuButton').attr('poke', false).removeClass('buttonEvent');
+                    $('.menuButton').attr('poke', false);
                 }, 500);
         }
     })
+
+    function buttonEvent() {
+        $('#menuButtons').addClass('buttonEnter')
+        setTimeout(() => {
+            console.log('scene')
+        }, 250);
+        //debug
+        setTimeout(() => {
+            $('#menuButtons').removeClass('buttonEnter')
+        }, 1000);
+    }
 })

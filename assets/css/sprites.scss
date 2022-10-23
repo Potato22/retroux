@@ -64,6 +64,7 @@
     animation: var(--buttonJump);
     width: 500px;
     cursor: pointer;
+    transition: all .20835s steps(5);
 }
 
 .menuButton {

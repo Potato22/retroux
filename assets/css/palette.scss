@@ -23,12 +23,14 @@ body {
     --inactiveStroke: white;
     --inactiveText: white;
     //animation
-    --fps: steps(10);
+    --fps: steps(15);
     --inactiveHighlight: translateX(-70px);
     --brgb: bgRGB .5s infinite var(--fps);
     --srgb: strokeRGB .5s infinite var(--fps);
     --flickerText: textFlicker .1s infinite var(--fps);
     --flickerFill: fillFlicker .1s infinite var(--fps);
+    --buttonEvent: translate(-700px, 0);
+    --ladderLimit: 7em;
 }
 [button-state=true] {
     --fps: steps(2);
@@ -37,6 +39,10 @@ body {
     --inactiveText: rgb(49, 49, 49);
     --inactiveHighlight: translateX(0px);
     --buttonJump: jump .1s 1 var(--fps);
+}
+.buttonEnter {
+    transform: var(--buttonEvent);
+    --ladderLimit: 0em;
 }
 @keyframes jump {
     0% {
@@ -50,7 +56,7 @@ body {
     }
 }
 .menuButton[poke=true] {
-    animation: buttonClick .2s 1 steps(2)
+    animation: buttonClick .2s 3 steps(2)
 }
 @keyframes buttonClick {
     0% {

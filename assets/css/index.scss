@@ -25,10 +25,12 @@
     opacity: 1;
     pointer-events: none;
     transform: scale(1.01);
-    
+    opacity: 1;
+    transition: all .4s .2s steps(8);
 }
 [started=true] {
-    animation: init .4s .2s 1 forwards steps(6);
+
+    opacity: 0;
 }
 @keyframes init {
     from {
@@ -59,7 +61,7 @@
 #sideOrnament {
     position: absolute;
     fill: black;
-    z-index: 1;
+    z-index: 2;
     margin-left: -.1em;
     transform: scaleY(1.01);
 }
@@ -74,8 +76,9 @@
 }
 
 #menuButtons {
-    z-index: 2;
+    z-index: 1;
     padding-left: 3em;
+    transition: all .20835s steps(5); //cubic-bezier(.94,0,.97,.82);
 }
 
 .pageName {
@@ -88,7 +91,6 @@
 }
 
 #menuButtons>.buttonComponent {
-    --ladderLimit: 7em;
     &:nth-child(2) {
       margin-left: calc(var(--ladderLimit) * 1);
     }

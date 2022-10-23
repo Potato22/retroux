@@ -35,8 +35,8 @@
             if (readyState) {
                 return;
             } else {
-                $('.cover').css('pointer-events', 'none');
                 setTimeout(() => {
+                    $('.cover').css('pointer-events', 'none');
                     $('.minimalLoading').html('[&nbsp;.&nbsp;&nbsp;&nbsp;]')
                     setTimeout(() => {
                         $('.minimalLoading').html('[&nbsp;&nbsp;.&nbsp;&nbsp;]')
@@ -123,7 +123,7 @@
                 </div>
             </div>
             <div id="menuButtons">
-                <div button-state=false class="buttonComponent">
+                <div button-state=false class="buttonComponent" buttonData="general">
                     <div class="buttonText">GENERAL</div>
                     <svg class="menuButton" width="455.84" height="100.27" version="1.1" viewBox="0 0 120.61 26.53">
                         <g transform="translate(-48.458 -55.241)">
@@ -132,7 +132,7 @@
                     </svg>
                     <div class="buttonHighlight"></div>
                 </div>
-                <div button-state=false class="buttonComponent">
+                <div button-state=false class="buttonComponent" buttonData="audio">
                     <div class="buttonText">AUDIO</div>
                     <svg class="menuButton" width="455.84" height="100.27" version="1.1" viewBox="0 0 120.61 26.53">
                         <g transform="translate(-48.458 -55.241)">
@@ -141,7 +141,7 @@
                     </svg>
                     <div class="buttonHighlight"></div>
                 </div>
-                <div button-state=false class="buttonComponent">
+                <div button-state=false class="buttonComponent" buttonData="gameData">
                     <div class="buttonText">GAME DATA</div>
                     <svg class="menuButton" width="455.84" height="100.27" version="1.1" viewBox="0 0 120.61 26.53">
                         <g transform="translate(-48.458 -55.241)">
@@ -150,7 +150,7 @@
                     </svg>
                     <div class="buttonHighlight"></div>
                 </div>
-                <div button-state=false class="buttonComponent">
+                <div button-state=false class="buttonComponent" buttonData="about">
                     <div class="buttonText">ABOUT</div>
                     <svg class="menuButton" width="455.84" height="100.27" version="1.1" viewBox="0 0 120.61 26.53">
                         <g transform="translate(-48.458 -55.241)">
