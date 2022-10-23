@@ -40,8 +40,12 @@ $(() => {
             bgm.pause();
             $('.cover').css('display', 'block').html(' Terminated!');
             setTimeout(() => {
-                window.close();
-                $('.cover').html('INTERACTIVE RETRO STYLIZED UX MOCKUP (4:3) 768p BY POTTO<br><b>[!] build may not work properly with devices screen smaller than 720p viewport.</b><br><br>###################<br>Music "Configuration", by DV-i<br>###################<br><br>BUILD IS STILL UNFINISHED! current todos:<br>-button events<br>-scene states<br>-background<br>started on 22 Oct 2022<br><br><br> (READY)<br><br> Click to start.');
+                $('.mainWindow').hide();
+                setTimeout(() => {
+                    $('.mainWindow').show();
+                    $('.cover').html('INTERACTIVE RETRO STYLIZED UX MOCKUP (4:3) 768p BY POTTO<br><b>[!] build may not work properly with devices screen smaller than 720p viewport.</b><br><br>###################<br>Music "Configuration", by DV-i<br>###################<br><br>BUILD IS STILL UNFINISHED! current todos:<br>-button events<br>-scene states<br>-background<br>started on 22 Oct 2022<br><br><br> (READY)<br><br> Click to start.');
+                    //window.close();
+                }, 1000);
                 $('.cover').css('pointer-events', 'auto');
             }, 2000);
         }, 500);
