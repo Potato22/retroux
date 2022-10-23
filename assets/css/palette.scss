@@ -6,16 +6,18 @@ body {
     background: rgb(29, 29, 29);
 }
 @font-face {
-    font-family: Inter;
+    font-family: "Orbitron-Black";
     src: url(../fonts/Orbitron-Black.ttf) format("truetype");
     font-weight: 1 1000;
 }
   @font-face {
-    font-family: ACES07_Regular;
+    font-family: "ACES07_Regular";
     src: url(../fonts/ACES07_Regular.ttf) format("truetype");
     font-weight: 300;
 }
 :root {
+    --textOrnament: "Orbitron-Black";
+    --textUX: "ACES07_Regular";
     --iconOrnament: rgb(100, 100, 100);
     --inactiveFill: rgb(53, 53, 53);
     --inactiveStroke: white;

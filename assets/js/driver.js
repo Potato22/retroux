@@ -1,6 +1,6 @@
 const bgm = new Audio('assets/audio/dv-i_configuration_bitcrush.mp3')
-const enter = new Audio('assets/audio/enter.ogg')
 const bgmv = .6 //for now
+const enter = new Audio('assets/audio/enter.ogg')
 $(() => {
     $('.grid').hide();
     $('.cover').on('click', function () {

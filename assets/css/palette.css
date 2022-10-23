@@ -5,7 +5,20 @@ body {
   overflow-y: hidden;
   background: rgb(29, 29, 29);
 }
+
+@font-face {
+  font-family: "Orbitron-Black";
+  src: url(../fonts/Orbitron-Black.ttf) format("truetype");
+  font-weight: 1 1000;
+}
+@font-face {
+  font-family: "ACES07_Regular";
+  src: url(../fonts/ACES07_Regular.ttf) format("truetype");
+  font-weight: 300;
+}
 :root {
+  --textOrnament: "Orbitron-Black";
+  --textUX: "ACES07_Regular";
   --iconOrnament: rgb(100, 100, 100);
   --inactiveFill: rgb(53, 53, 53);
   --inactiveStroke: white;
@@ -17,6 +30,7 @@ body {
   --flickerText: textFlicker .1s infinite var(--fps);
   --flickerFill: fillFlicker .1s infinite var(--fps);
 }
+
 [button-state=true] {
   --fps: steps(2);
   --inactiveFill: rgb(241, 241, 241);
