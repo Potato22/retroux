@@ -50,7 +50,6 @@
     stroke-dashoffset: 0;
   }
 }
-
 .buttonComponent {
   display: flex;
   align-items: center;
@@ -69,7 +68,7 @@
 .buttonText {
   position: absolute;
   color: var(--inactiveText);
-  font-family: "ACES07";
+  font-family: "ACES07_Regular";
   font-size: 3.4rem;
   margin-left: 0.5em;
   margin-top: 0.2em;
