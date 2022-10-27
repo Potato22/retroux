@@ -21,7 +21,6 @@ const select = new Howl({
 const warning = new Howl({
     src: ['assets/audio/warning.ogg']
 })
-
 $(() => {
     console.log('READY [OK]')
     $('.grid, #menuButtons').hide();
@@ -52,4 +51,3 @@ $(() => {
         }, 500);
     })
 })
-//init
