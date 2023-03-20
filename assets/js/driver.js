@@ -22,6 +22,8 @@ const warning = new Howl({
     src: ['assets/audio/warning.ogg']
 })
 $(() => {
+    coverText = "<a href='https://github.com/Potato22/HTML5RetroUX'>https://github.com/Potato22/HTML5RetroUX</a><br><br>INTERACTIVE RETRO STYLIZED UX MOCKUP (4:3) 768p BY POTTO<br><b>[!] build may not work properly with devices screen smaller than 720p viewport.</b><br><br>###################<br>Music 'Configuration', by DV-i<br>###################<br><br>BUILD IS STILL UNFINISHED! current todos:<br>-scene states<br>-background<br>started on 22 Oct 2022<br><br><br> (READY)<br><br> Click to start."
+    
     console.log('READY [OK]')
     $('.grid, #buttonArrayInline').hide();
     $('.cover').on('click', function () {
