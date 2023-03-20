@@ -23,7 +23,8 @@ body {
   --inactiveFill: rgb(53, 53, 53);
   --inactiveStroke: white;
   --inactiveText: white;
-  --fps: steps(15);
+  --fps: steps(10);
+  --tempo: .417s;
   --inactiveHighlight: translateX(-70px);
   --brgb: bgRGB .5s infinite var(--fps);
   --srgb: strokeRGB .5s infinite var(--fps);
@@ -31,6 +32,7 @@ body {
   --flickerFill: fillFlicker .1s infinite var(--fps);
   --buttonEvent: translate(-700px, 0);
   --ladderLimit: 7em;
+  --xWiggle: xWiggle calc(var(--tempo)*4) infinite var(--fps);
 }
 
 [button-state=true] {

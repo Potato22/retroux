@@ -11,13 +11,13 @@
 //properties
 .iconSpinner {
     transform: rotate(0deg);
-    animation: iconSpinner .4167s infinite var(--fps);
+    animation: iconSpinner var(--tempo) infinite var(--fps);
     opacity: 1;
 }
 
 .iconBoombox {
     transform: scale(1);
-    animation: iconBoombox .4167s infinite var(--fps);
+    animation: iconBoombox var(--tempo) infinite steps(4);
     opacity: 0;
 }
 
@@ -27,8 +27,8 @@
     stroke: var(--iconOrnament);
     stroke-dasharray: 53;
     stroke-dashoffset: 53;
-    animation: iconData .4167s infinite alternate var(--fps);
-    opacity: 0;
+    animation: iconData var(--tempo) infinite alternate var(--fps);
+    opacity:0;
 }
 
 @keyframes iconSpinner {
@@ -42,8 +42,11 @@
 }
 
 @keyframes iconBoombox {
-    to {
-        transform: scale(.9);
+    from {
+        transform: scale(1);
+    }
+    80% {
+        transform: scale(.8);
     }
 }
 
@@ -61,7 +64,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 1em;
-    animation: var(--buttonJump);
+    //animation: var(--buttonJump);
     width: 500px;
     cursor: pointer;
     transition: all .20835s steps(5);

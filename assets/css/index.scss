@@ -28,10 +28,12 @@
     opacity: 1;
     transition: all .4s .2s steps(8);
 }
+
 [started=true] {
 
     opacity: 0;
 }
+
 @keyframes init {
     from {
         opacity: 1;
@@ -49,8 +51,9 @@
     border: solid 1px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    //justify-content: space-between;
 }
+
 .bglive {
     position: absolute;
     width: 1024px;
@@ -72,7 +75,7 @@
     align-items: center;
     padding-left: 2rem;
     padding-top: 2rem;
-        z-index: 1;
+    z-index: 1;
 }
 
 #menuButtons {
@@ -90,20 +93,59 @@
     color: rgb(59, 59, 59);
 }
 
+#buttonArrayInline {
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: flex-start;
+}
+
 #menuButtons>.buttonComponent {
     &:nth-child(2) {
-      margin-left: calc(var(--ladderLimit) * 1);
+        margin-left: calc(var(--ladderLimit) * 1);
     }
-  
+
     &:nth-child(3) {
         margin-left: calc(var(--ladderLimit) * 2);
     }
-  
+
     &:nth-child(4) {
         margin-left: calc(var(--ladderLimit) * 3);
     }
-  
+
     &:nth-child(5) {
         margin-left: calc(var(--ladderLimit) * 4);
     }
-  }
+}
+.buttonComponent {
+    animation: var(--xWiggle);
+    &:nth-child(1) {
+        animation-delay: 0ms;
+    }
+    &:nth-child(2) {
+        animation-delay: -300ms;
+    }
+    &:nth-child(3) {
+        animation-delay: -600ms;
+    }
+    &:nth-child(4) {
+        animation-delay: -1200ms;
+    }
+    &:nth-child(5) {
+        animation-delay: -1700ms;
+    }
+}
+@keyframes xWiggle {
+    from {
+        transform: translateX(0px);
+    }
+    50% {
+        transform: translateX(5px)
+    }
+}
+
+.menuGameplay,
+.menuAudio,
+.menuGameData,
+.menuAbout {
+    display: none;
+}

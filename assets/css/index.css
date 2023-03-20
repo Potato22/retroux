@@ -47,7 +47,6 @@
   border: solid 1px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .bglive {
@@ -89,6 +88,12 @@
   color: rgb(59, 59, 59);
 }
 
+#buttonArrayInline {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+}
+
 #menuButtons > .buttonComponent:nth-child(2) {
   margin-left: calc(var(--ladderLimit) * 1);
 }
@@ -100,6 +105,40 @@
 }
 #menuButtons > .buttonComponent:nth-child(5) {
   margin-left: calc(var(--ladderLimit) * 4);
+}
+
+.buttonComponent {
+  animation: var(--xWiggle);
+}
+.buttonComponent:nth-child(1) {
+  animation-delay: 0ms;
+}
+.buttonComponent:nth-child(2) {
+  animation-delay: -300ms;
+}
+.buttonComponent:nth-child(3) {
+  animation-delay: -600ms;
+}
+.buttonComponent:nth-child(4) {
+  animation-delay: -1200ms;
+}
+.buttonComponent:nth-child(5) {
+  animation-delay: -1700ms;
+}
+
+@keyframes xWiggle {
+  from {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+}
+.menuGameplay,
+.menuAudio,
+.menuGameData,
+.menuAbout {
+  display: none;
 }
 
 /*# sourceMappingURL=index.css.map */
