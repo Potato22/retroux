@@ -34,12 +34,12 @@ $(() => {
         enter.play(), bgm.play()
     })
 
-    //SKIP
-    console.log('Starting...')
-    $('.cover').css('display', 'none');
-    $('.grid, #buttonArrayInline').show();
-    $('.fader').attr('started', 'true');
-    enter.play(), bgm.play()
+    ////SKIP
+    //console.log('Starting...')
+    //$('.cover').css('display', 'none');
+    //$('.grid, #buttonArrayInline').show();
+    //$('.fader').attr('started', 'true');
+    //enter.play(), bgm.play()
 
     $('#shutdown').on('click', function () {
         $('.wrapper').css('pointer-events', 'none');

@@ -32,7 +32,7 @@ body {
   --flickerFill: fillFlicker .1s infinite ;
   --buttonEvent: translate(-700px, 0);
   --ladderLimit: 7em;
-  --xWiggle: xWiggle calc(var(--tempo)*4) infinite ;
+  --xWiggle: xWiggle calc(var(--tempo)*4) infinite cubic-bezier(.5,0,.5,1);
 }
 
 [button-state=true] {

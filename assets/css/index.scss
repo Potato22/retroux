@@ -94,7 +94,7 @@
 #menuButtons {
     z-index: 1;
     padding-left: 3em;
-    transition: all .20835s cubic-bezier(1,.09,.77,.99); //cubic-bezier(.94,0,.97,.82);
+    transition: all .20835s cubic-bezier(1,.09,.77,.99);
 }
 
 .pageName {
@@ -152,7 +152,7 @@
         transform: translateX(0px);
     }
     50% {
-        transform: translateX(5px)
+        transform: translateX(3px)
     }
 }
 
