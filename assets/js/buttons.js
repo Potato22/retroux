@@ -26,103 +26,143 @@ $(() => {
     })
 
     function buttonEvent() {
-        //hide buttons
-        $('.initMenu').addClass('buttonEnter')
+        const enterDelay = 400;
+        const ornamentDelay = 200;
+        //hide initial menu buttons
+        $('.initMenu').addClass('buttonEnter');
+        //alert("hide curr menu animation for " + buttonData)
 
         //buttonFunc
-        setTimeout(() => {
-            switch (buttonData) {
-                case "gameplay":
-                    console.log('scene', buttonData);
-                    icon = "spinner"
-                    scenePageName = "GAMEPLAY"
-                    sceneName = ".menuGameplay"
-                    sceneEnter();
-                    break;
-                case "audio":
-                    console.log('scene', buttonData);
-                    icon = "boombox"
-                    scenePageName = "AUDIO"
-                    sceneName = ".menuAudio"
-                    sceneEnter();
-                    break;
-                case "gameData":
-                    console.log('scene', buttonData);
-                    icon = "data"
-                    scenePageName = "GAME DATA"
-                    sceneName = ".menuGameData"
-                    sceneEnter();
-                    break;
-                case "about":
-                    console.log('scene', buttonData);
-                    icon = "spinner"
-                    scenePageName = "ABOUT"
-                    sceneName = ".menuAbout"
-                    sceneEnter();
-                    break;
-                case "apply":
-                    switch (applyData) {
-                        case "gameplay":
-                            sceneName = ".menuGameplay"
-                            break;
-                        case "audio":
-                            sceneName = ".menuAudio"
-                            break;
-                        case "gameData":
-                            sceneName = ".menuGameData"
-                            break;
-                        case "about":
-                            sceneName = ".menuAbout"
-                            break;
-                    }
-                    console.log('exiting...', sceneName)
-                    $(sceneName).addClass('buttonEnter');
-                    setTimeout(() => {
-                        $(sceneName).hide();
-                        $('.pageName').html('SETTINGS')
-                        $('.initMenu').show();
-                        $('.iconSpinner').css('opacity', 1);
-                        $('.iconBoombox').css('opacity', 0);
-                        $('.iconData').css('opacity', 0);
-                        setTimeout(() => {
-                            $('.initMenu').removeClass('buttonEnter')
-                        }, 100);
-                    }, 200);
-                    break;
-                default:
-                    // default code to execute if none of the cases match
-                    $('.initMenu').removeClass('buttonEnter')
-                    break;
-            }
+        switch (buttonData) {
+            case "gameplay":
+                console.log('scene', buttonData);
+                icon = "spinner"
+                scenePageName = "GAMEPLAY"
+                sceneName = ".menuGameplay"
 
-            function sceneEnter() {
-                $('.pageName').html(scenePageName)
-                switch (icon) {
-                    case "spinner":
-                        console.log(icon)
-                        $('.iconSpinner').css('opacity', 1);
-                        $('.iconBoombox').css('opacity', 0);
-                        $('.iconData').css('opacity', 0);
+                setTimeout(() => {
+                    hideOrnaments();
+                }, ornamentDelay);
+                setTimeout(() => {
+                    sceneEnter();
+                }, enterDelay);
+                break;
+            case "audio":
+                console.log('scene', buttonData);
+                icon = "boombox"
+                scenePageName = "AUDIO"
+                sceneName = ".menuAudio"
+
+                setTimeout(() => {
+                    hideOrnaments();
+                }, ornamentDelay);
+                setTimeout(() => {
+                    sceneEnter();
+                }, enterDelay);
+                break;
+            case "gameData":
+                console.log('scene', buttonData);
+                icon = "data"
+                scenePageName = "GAME DATA"
+                sceneName = ".menuGameData"
+
+                setTimeout(() => {
+                    hideOrnaments();
+                }, ornamentDelay);
+                setTimeout(() => {
+                    sceneEnter();
+                }, enterDelay);
+                break;
+            case "about":
+                console.log('scene', buttonData);
+                icon = "spinner"
+                scenePageName = "ABOUT"
+                sceneName = ".menuAbout"
+
+                setTimeout(() => {
+                    hideOrnaments();
+                }, ornamentDelay);
+                setTimeout(() => {
+                    sceneEnter();
+                }, enterDelay);
+                break;
+            case "apply":
+                switch (applyData) {
+                    case "gameplay":
+                        sceneName = ".menuGameplay"
                         break;
-                        case "boombox":
-                        console.log(icon)
-                        $('.iconSpinner').css('opacity', 0);
-                        $('.iconBoombox').css('opacity', 1);
-                        $('.iconData').css('opacity', 0);
+                    case "audio":
+                        sceneName = ".menuAudio"
                         break;
-                        case "data":
-                        console.log(icon)
-                        $('.iconSpinner').css('opacity', 0);
-                        $('.iconBoombox').css('opacity', 0);
-                        $('.iconData').css('opacity', 1);
+                    case "gameData":
+                        sceneName = ".menuGameData"
+                        break;
+                    case "about":
+                        sceneName = ".menuAbout"
                         break;
                 }
-                $('.initMenu').hide();
-                $(sceneName).show();
+                console.log('exiting...', sceneName)
+                $(sceneName).addClass('buttonEnter');
                 setTimeout(() => {
-                    $(sceneName).removeClass('buttonEnter');
-                }, 100);
+                    $(sceneName).hide();
+                    $('.pageName').html('SETTINGS')
+                    $('.initMenu').show();
+                    $('.iconSpinner').css('opacity', 1);
+                    $('.iconBoombox').css('opacity', 0);
+                    $('.iconData').css('opacity', 0);
+
+                    hideOrnaments();
+                    setTimeout(() => {
+                        $('.initMenu').removeClass('buttonEnter')
+                        unhideOrnaments();
+                    }, 200);
+                }, 200);
+                break;
+            default:
+                // default code to execute if none of the cases match
+                $('.initMenu').removeClass('buttonEnter')
+                break;
+        }
+        function hideOrnaments() {
+            $('#screenOrnaments').addClass('hideOrnaments');
+        }
+        function unhideOrnaments () {
+            $('#screenOrnaments').removeClass('hideOrnaments');
+        }
+        function sceneEnter() {
+            //change title
+            $('.pageName').html(scenePageName)
+            //alert('reveal animation ' + scenePageName)
+
+            //check which pressed for icons
+            switch (icon) {
+                case "spinner":
+                    console.log(icon)
+                    $('.iconSpinner').css('opacity', 1);
+                    $('.iconBoombox').css('opacity', 0);
+                    $('.iconData').css('opacity', 0);
+                    break;
+                case "boombox":
+                    console.log(icon)
+                    $('.iconSpinner').css('opacity', 0);
+                    $('.iconBoombox').css('opacity', 1);
+                    $('.iconData').css('opacity', 0);
+                    break;
+                case "data":
+                    console.log(icon)
+                    $('.iconSpinner').css('opacity', 0);
+                    $('.iconBoombox').css('opacity', 0);
+                    $('.iconData').css('opacity', 1);
+                    break;
             }
-        }, 300);
+            $('.initMenu').hide();
+            $(sceneName).show();
+
+            //enter animation
+            unhideOrnaments();
+            setTimeout(() => {
+                $(sceneName).removeClass('buttonEnter');
+            }, 100);
+        }
     }
 })

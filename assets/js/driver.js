@@ -22,8 +22,8 @@ const warning = new Howl({
     src: ['assets/audio/warning.ogg']
 })
 $(() => {
-    coverText = "<a href='https://github.com/Potato22/HTML5RetroUX'>https://github.com/Potato22/HTML5RetroUX</a><br><br>INTERACTIVE RETRO STYLIZED UX MOCKUP (4:3) 768p BY POTTO<br><b>[!] build may not work properly with devices screen smaller than 720p viewport.</b><br><br>###################<br>Music 'Configuration', by DV-i<br>###################<br><br>BUILD IS STILL UNFINISHED! current todos:<br>-scene states<br>-background<br>started on 22 Oct 2022<br><br><br> (READY)<br><br> Click to start."
-    
+    coverText = "<a href='https://github.com/Potato22/HTML5RetroUX'>https://github.com/Potato22/HTML5RetroUX</a><br><br>INTERACTIVE RETRO STYLIZED UX MOCKUP (4:3) 768p BY POTTO<br><b>[!] build may not work properly with devices screen smaller than 720p viewport.</b><br><br>###################<br>Music 'Configuration', by DV-i<br>###################<br><br>Click again to restart."
+
     console.log('READY [OK]')
     $('.grid, #buttonArrayInline').hide();
     $('.cover').on('click', function () {
@@ -31,25 +31,34 @@ $(() => {
         $('.cover').css('display', 'none');
         $('.grid, #buttonArrayInline').show();
         $('.fader').attr('started', 'true');
-
         enter.play(), bgm.play()
     })
-    $('#shutdown').on('click', function() {
+
+    ////SKIP
+    //console.log('Starting...')
+    //$('.cover').css('display', 'none');
+    //$('.grid, #buttonArrayInline').show();
+    //$('.fader').attr('started', 'true');
+    //enter.play(), bgm.play()
+
+    $('#shutdown').on('click', function () {
+        $('.wrapper').css('pointer-events', 'none');
         setTimeout(() => {
-            $('.grid, #buttonArrayInline').hide();
             $('.fader').attr('started', 'false');
-            $('.cover').css('pointer-events', 'none');
-            bgm.stop();
-            $('.cover').css('display', 'block').html(' Terminated!');
             setTimeout(() => {
-                $('.mainWindow').hide();
+                $('.grid, #buttonArrayInline').hide();
+                $('.cover').css('display', 'block').html(' Terminated!');
+                bgm.stop();
                 setTimeout(() => {
-                    $('.mainWindow').show();
-                    $('.cover').html(coverText);
-                    //window.close();
-                }, 1000);
-                $('.cover').css('pointer-events', 'auto');
-            }, 2000);
+                    $('.mainWindow').hide();
+                    setTimeout(() => {
+                        $('.mainWindow').show();
+                        $('.cover').html(coverText);
+                        //window.close();
+                    }, 1000);
+                    $('.wrapper').css('pointer-events', 'auto');
+                }, 2000);
+            }, 1000);
         }, 500);
     })
 })

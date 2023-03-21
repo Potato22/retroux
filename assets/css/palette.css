@@ -49,6 +49,10 @@ body {
   --ladderLimit: 0em;
 }
 
+.hideOrnaments {
+  transform: translateX(-1024px);
+}
+
 @keyframes jump {
   0% {
     transform: translateX(0px);

@@ -66,6 +66,10 @@
     filter: hue-rotate(360deg) brightness(1.5);
   }
 }
+#screenOrnaments {
+  transition: all 180ms var(--fps);
+}
+
 #sideOrnament {
   position: absolute;
   fill: black;

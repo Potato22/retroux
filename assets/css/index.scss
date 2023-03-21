@@ -71,6 +71,9 @@
     }
 }
 
+#screenOrnaments {
+    transition: all 180ms var(--fps);
+}
 #sideOrnament {
     position: absolute;
     fill: black;
