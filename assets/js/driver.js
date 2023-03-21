@@ -1,5 +1,5 @@
 const bgm = new Howl({
-    src: ['assets/audio/dv-i_configuration_bitcrush'],
+    src: ['assets/audio/dv-i_configuration_bitcrush.ogg'],
     loop: true,
     volume: .6,
 })
