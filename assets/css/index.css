@@ -25,7 +25,7 @@
   pointer-events: none;
   transform: scale(1.01);
   opacity: 1;
-  transition: all 0.4s 0.2s steps(8);
+  transition: all 0.4s 0.2s;
 }
 
 [started=true] {
@@ -55,7 +55,7 @@
   height: 768px;
   background: white;
   z-index: -2;
-  animation: bgliveRainbow calc(var(--tempo) * 5) infinite steps(60);
+  animation: bgliveRainbow calc(var(--tempo) * 5) infinite;
 }
 
 @keyframes bgliveRainbow {
@@ -67,7 +67,7 @@
   }
 }
 #screenOrnaments {
-  transition: all 180ms var(--fps);
+  transition: all 180ms cubic-bezier(1, 0.09, 0.77, 0.99);
 }
 
 #sideOrnament {
@@ -90,7 +90,7 @@
 #menuButtons {
   z-index: 1;
   padding-left: 3em;
-  transition: all 0.20835s steps(5);
+  transition: all 0.20835s cubic-bezier(1, 0.09, 0.77, 0.99);
 }
 
 .pageName {

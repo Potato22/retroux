@@ -1,5 +1,5 @@
 const bgm = new Howl({
-    src: ['assets/audio/dv-i_configuration_bitcrush.ogg'],
+    src: ['assets/audio/dv-i_configuration_bitcrush'],
     loop: true,
     volume: .6,
 })
@@ -34,12 +34,12 @@ $(() => {
         enter.play(), bgm.play()
     })
 
-    ////SKIP
-    //console.log('Starting...')
-    //$('.cover').css('display', 'none');
-    //$('.grid, #buttonArrayInline').show();
-    //$('.fader').attr('started', 'true');
-    //enter.play(), bgm.play()
+    //SKIP
+    console.log('Starting...')
+    $('.cover').css('display', 'none');
+    $('.grid, #buttonArrayInline').show();
+    $('.fader').attr('started', 'true');
+    enter.play(), bgm.play()
 
     $('#shutdown').on('click', function () {
         $('.wrapper').css('pointer-events', 'none');

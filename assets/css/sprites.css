@@ -9,13 +9,13 @@
 
 .iconSpinner {
   transform: rotate(0deg);
-  animation: iconSpinner var(--tempo) infinite var(--fps);
+  animation: iconSpinner var(--tempo) infinite linear;
   opacity: 1;
 }
 
 .iconBoombox {
   transform: scale(1);
-  animation: iconBoombox var(--tempo) infinite steps(4);
+  animation: iconBoombox var(--tempo) infinite linear;
   opacity: 0;
 }
 
@@ -25,7 +25,7 @@
   stroke: var(--iconOrnament);
   stroke-dasharray: 53;
   stroke-dashoffset: 53;
-  animation: iconData var(--tempo) infinite alternate var(--fps);
+  animation: iconData var(--tempo) infinite alternate linear;
   opacity: 0;
 }
 
@@ -92,7 +92,7 @@
   z-index: -5;
   transform: scale(2);
   transform-origin: center;
-  animation: fillRGB 15s infinite var(--fps), randomTranslate 15.0012s infinite cubic-bezier(0.31, 0.01, 0.7, 0.99);
+  animation: fillRGB 15s infinite, randomTranslate 15.0012s infinite cubic-bezier(0.31, 0.01, 0.7, 0.99);
   --scale: 1.6;
 }
 

@@ -26,13 +26,13 @@ body {
   --fps: steps(10);
   --tempo: .417s;
   --inactiveHighlight: translateX(-70px);
-  --brgb: bgRGB .5s infinite var(--fps);
-  --srgb: strokeRGB .5s infinite var(--fps);
-  --flickerText: textFlicker .1s infinite var(--fps);
-  --flickerFill: fillFlicker .1s infinite var(--fps);
+  --brgb: bgRGB .5s infinite ;
+  --srgb: strokeRGB .5s infinite ;
+  --flickerText: textFlicker .1s infinite ;
+  --flickerFill: fillFlicker .1s infinite ;
   --buttonEvent: translate(-700px, 0);
   --ladderLimit: 7em;
-  --xWiggle: xWiggle calc(var(--tempo)*4) infinite var(--fps);
+  --xWiggle: xWiggle calc(var(--tempo)*4) infinite ;
 }
 
 [button-state=true] {
@@ -41,7 +41,7 @@ body {
   --inactiveStroke: rgb(0, 0, 0);
   --inactiveText: rgb(49, 49, 49);
   --inactiveHighlight: translateX(0px);
-  --buttonJump: jump .1s 1 var(--fps);
+  --buttonJump: jump .1s 1 ;
 }
 
 .buttonEnter {
