@@ -55,7 +55,7 @@
   height: 768px;
   background: white;
   z-index: -2;
-  animation: bgliveRainbow calc(var(--tempo) * 5) infinite;
+  animation: bgliveRainbow calc(var(--tempo) * 8) infinite linear;
 }
 
 @keyframes bgliveRainbow {

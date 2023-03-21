@@ -105,7 +105,6 @@ $(() => {
                 $(sceneName).addClass('buttonEnter');
                 setTimeout(() => {
                     $(sceneName).hide();
-                    $('.pageName').html('SETTINGS')
                     $('.initMenu').show();
                     $('.iconSpinner').css('opacity', 1);
                     $('.iconBoombox').css('opacity', 0);
@@ -115,6 +114,7 @@ $(() => {
                     setTimeout(() => {
                         $('.initMenu').removeClass('buttonEnter')
                         unhideOrnaments();
+                        $('.pageName').html('SETTINGS')
                     }, 200);
                 }, 200);
                 break;
