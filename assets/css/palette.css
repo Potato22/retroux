@@ -16,9 +16,15 @@ body {
   src: url(../fonts/ACES07_Regular.ttf) format("truetype");
   font-weight: 300;
 }
+@font-face {
+  font-family: "Erte";
+  src: url(../fonts/Erte.otf) format("opentype");
+  font-weight: 300;
+}
 :root {
   --textOrnament: "Orbitron-Black";
   --textUX: "ACES07_Regular";
+  --textUX2: "Erte";
   --iconOrnament: rgb(100, 100, 100);
   --inactiveFill: rgb(53, 53, 53);
   --inactiveStroke: white;
@@ -26,13 +32,14 @@ body {
   --fps: steps(10);
   --tempo: .417s;
   --inactiveHighlight: translateX(-70px);
-  --brgb: bgRGB .5s infinite ;
-  --srgb: strokeRGB .5s infinite ;
-  --flickerText: textFlicker .1s infinite ;
-  --flickerFill: fillFlicker .1s infinite ;
+  --brgb: bgRGB .5s infinite;
+  --srgb: strokeRGB .5s infinite;
+  --flickerText: textFlicker .1s infinite;
+  --flickerFill: fillFlicker .1s infinite;
   --buttonEvent: translate(-700px, 0);
   --ladderLimit: 7em;
-  --xWiggle: xWiggle calc(var(--tempo)*4) infinite cubic-bezier(.5,0,.5,1);
+  --easingDefault: cubic-bezier(1, .09, .77, .99);
+  --xWiggle: xWiggle calc(var(--tempo)*4) infinite cubic-bezier(.5, 0, .5, 1);
 }
 
 [button-state=true] {
@@ -41,7 +48,7 @@ body {
   --inactiveStroke: rgb(0, 0, 0);
   --inactiveText: rgb(49, 49, 49);
   --inactiveHighlight: translateX(0px);
-  --buttonJump: jump .1s 1 ;
+  --buttonJump: jump .1s 1;
 }
 
 .buttonEnter {

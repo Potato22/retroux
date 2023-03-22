@@ -1,37 +1,68 @@
+var bgmVol = .6
+var sfxVol = 1
 const bgm = new Howl({
-    src: ['assets/audio/dv-i_configuration_bitcrush.ogg'],
+    src: ['assets/audio/lq/dv-i_configuration_bitcrush.ogg'],
     loop: true,
-    volume: .6,
+    volume: bgmVol
+})
+const bgm2 = new Howl({
+    src: ['assets/audio/lq/dv-i_instinct_abyss_bitcrush.ogg'],
+    loop: true,
+    volume: bgmVol
+})
+const logo = new Howl({
+    src: ['assets/audio/lq/dv-i_logo_bitcrush.ogg']
 })
 const enter = new Howl({
-    src: ['assets/audio/enter.ogg']
+    src: ['assets/audio/lq/enter.ogg'],
+    volume: sfxVol
 })
 const cancel = new Howl({
-    src: ['assets/audio/cancel.ogg']
+    src: ['assets/audio/lq/cancel.ogg'],
+    volume: sfxVol
 })
 const confirm = new Howl({
-    src: ['assets/audio/confirm.ogg']
+    src: ['assets/audio/lq/confirm.ogg'],
+    volume: sfxVol
 })
 const confirm2 = new Howl({
-    src: ['assets/audio/confirm2.ogg']
+    src: ['assets/audio/lq/confirm2.ogg'],
+    volume: sfxVol
 })
 const select = new Howl({
-    src: ['assets/audio/select.ogg']
+    src: ['assets/audio/lq/select.ogg'],
+    volume: sfxVol
 })
 const warning = new Howl({
-    src: ['assets/audio/warning.ogg']
+    src: ['assets/audio/lq/warning.ogg'],
+    volume: sfxVol
 })
 $(() => {
-    coverText = "<a href='https://github.com/Potato22/HTML5RetroUX'>https://github.com/Potato22/HTML5RetroUX</a><br><br>INTERACTIVE RETRO STYLIZED UX MOCKUP (4:3) 768p BY POTTO<br><b>[!] build may not work properly with devices screen smaller than 720p viewport.</b><br><br>###################<br>Music 'Configuration', by DV-i<br>###################<br><br>Click again to restart."
+    coverText = "Click again to restart."
 
     console.log('READY [OK]')
-    $('.grid, #buttonArrayInline').hide();
+    $('.grid, #buttonArrayInline, #screenOrnaments, .bglive').hide();
     $('.cover').on('click', function () {
-        console.log('Starting...')
+        $('.logoSplash').show();
+        $('.logoSplash').css({'opacity': '1'})
+        enter.play()
+        $('.logoSplash').css({'background': 'white'})
         $('.cover').css('display', 'none');
-        $('.grid, #buttonArrayInline').show();
-        $('.fader').attr('started', 'true');
-        enter.play(), bgm.play()
+        setTimeout(() => {
+            logo.play()
+        }, 200);
+        setTimeout(() => {
+            console.log('Starting...')
+            setTimeout(() => {
+                $('.logoSplash').css({'opacity': '0'})
+                setTimeout(() => {
+                    $('.fader').attr('started', 'true');
+                    $('.logoSplash').hide();
+                    $('.grid, #buttonArrayInline, #screenOrnaments, .bglive').show();
+                    bgm2.play()
+                }, 500);
+            }, 300);
+        }, 3000);
     })
 
     ////SKIP
@@ -46,9 +77,10 @@ $(() => {
         setTimeout(() => {
             $('.fader').attr('started', 'false');
             setTimeout(() => {
-                $('.grid, #buttonArrayInline').hide();
+                $('.grid, #buttonArrayInline, #screenOrnaments, .bglive').hide();
                 $('.cover').css('display', 'block').html(' Terminated!');
                 bgm.stop();
+                bgm2.stop();
                 setTimeout(() => {
                     $('.mainWindow').hide();
                     setTimeout(() => {

@@ -106,12 +106,12 @@ $(() => {
                 setTimeout(() => {
                     $(sceneName).hide();
                     $('.initMenu').show();
-                    $('.iconSpinner').css('opacity', 1);
-                    $('.iconBoombox').css('opacity', 0);
-                    $('.iconData').css('opacity', 0);
-
+                    
                     hideOrnaments();
                     setTimeout(() => {
+                        $('.iconSpinner').css('opacity', 1);
+                        $('.iconBoombox').css('opacity', 0);
+                        $('.iconData').css('opacity', 0);
                         $('.initMenu').removeClass('buttonEnter')
                         unhideOrnaments();
                         $('.pageName').html('SETTINGS')
