@@ -73,7 +73,7 @@
   margin-bottom: 1em;
   width: 500px;
   cursor: pointer;
-  transition: all 0.20835s steps(5);
+  transition: all var(--elementTransitionTimer) var(--easingDefault);
 }
 
 .menuButton {
@@ -93,7 +93,7 @@
 }
 
 .buttonHighlight {
-  width: 80px;
+  width: var(--highlightWidth);
   height: 80px;
   animation: var(--brgb);
   transform: var(--inactiveHighlight);

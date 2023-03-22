@@ -22,6 +22,8 @@ body {
   font-weight: 300;
 }
 :root {
+  --windowSizeX: 1024px;
+  --windowSizeY: 768px;
   --textOrnament: "Orbitron-Black";
   --textUX: "ACES07_Regular";
   --textUX2: "Erte";
@@ -29,8 +31,10 @@ body {
   --inactiveFill: rgb(53, 53, 53);
   --inactiveStroke: white;
   --inactiveText: white;
+  --highlightWidth: 80px;
   --fps: steps(10);
   --tempo: .417s;
+  --elementTransitionTimer: .20835s;
   --inactiveHighlight: translateX(-70px);
   --brgb: bgRGB .5s infinite;
   --srgb: strokeRGB .5s infinite;
@@ -43,7 +47,6 @@ body {
 }
 
 [button-state=true] {
-  --fps: steps(2);
   --inactiveFill: rgb(241, 241, 241);
   --inactiveStroke: rgb(0, 0, 0);
   --inactiveText: rgb(49, 49, 49);
@@ -51,8 +54,33 @@ body {
   --buttonJump: jump .1s 1;
 }
 
+.toggleON .buttonHighlight {
+  position: absolute;
+  --inactiveHighlight: translateX(0px);
+  --highlightWidth: 150px;
+  --brgb: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: var(--inactiveStroke);
+  border: solid 3px;
+  box-sizing: border-box;
+  font-family: var(--textUX);
+  font-size: 3.4rem;
+  text-align: right;
+  margin-left: 7.2em;
+  padding-right: 1rem;
+  padding-top: 0.15em;
+  font-weight: 700;
+  color: var(--inactiveFill);
+}
+
 .buttonEnter {
   transform: var(--buttonEvent);
+  --ladderLimit: 0em;
+}
+
+.noladder {
   --ladderLimit: 0em;
 }
 

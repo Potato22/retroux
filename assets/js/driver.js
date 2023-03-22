@@ -1,12 +1,17 @@
-var bgmVol = .6
+var bgmVol = .5
 var sfxVol = 1
-const bgm = new Howl({
+const bgm1 = new Howl({
     src: ['assets/audio/lq/dv-i_configuration_bitcrush.ogg'],
     loop: true,
     volume: bgmVol
 })
 const bgm2 = new Howl({
     src: ['assets/audio/lq/dv-i_instinct_abyss_bitcrush.ogg'],
+    loop: true,
+    volume: bgmVol
+})
+const bgm3 = new Howl({
+    src: ['assets/audio/lq/dv-i_implementation_bitcrush.ogg'],
     loop: true,
     volume: bgmVol
 })
@@ -33,6 +38,9 @@ const select = new Howl({
     src: ['assets/audio/lq/select.ogg'],
     volume: sfxVol
 })
+
+var bgm = bgm2
+
 const warning = new Howl({
     src: ['assets/audio/lq/warning.ogg'],
     volume: sfxVol
@@ -43,34 +51,38 @@ $(() => {
     console.log('READY [OK]')
     $('.grid, #buttonArrayInline, #screenOrnaments, .bglive').hide();
     $('.cover').on('click', function () {
-        $('.logoSplash').show();
-        $('.logoSplash').css({'opacity': '1'})
-        enter.play()
-        $('.logoSplash').css({'background': 'white'})
-        $('.cover').css('display', 'none');
+        warning.play()
         setTimeout(() => {
-            logo.play()
-        }, 200);
+            $('.logoSplash').show();
+            $('.logoSplash').css({
+                'opacity': '1'
+            })
+            $('.logoSplash').css({
+                'background': 'white'
+            })
+            $('.cover').css('display', 'none');
+            setTimeout(() => {
+                logo.play()
+            }, 200);
+        }, 300);
         setTimeout(() => {
             console.log('Starting...')
             setTimeout(() => {
-                $('.logoSplash').css({'opacity': '0'})
+                $('.logoSplash').css({
+                    'opacity': '0'
+                })
                 setTimeout(() => {
                     $('.fader').attr('started', 'true');
                     $('.logoSplash').hide();
                     $('.grid, #buttonArrayInline, #screenOrnaments, .bglive').show();
-                    bgm2.play()
+                    bgm.play()
                 }, 500);
             }, 300);
         }, 3000);
     })
 
-    ////SKIP
-    //console.log('Starting...')
-    //$('.cover').css('display', 'none');
-    //$('.grid, #buttonArrayInline').show();
-    //$('.fader').attr('started', 'true');
-    //enter.play(), bgm.play()
+    //DEBUG:: SKIP
+    debugSkipIntro();
 
     $('#shutdown').on('click', function () {
         $('.wrapper').css('pointer-events', 'none');
@@ -94,3 +106,14 @@ $(() => {
         }, 500);
     })
 })
+function debugSkipIntro () {
+    //DEBUG:: SKIP
+    console.log('Starting...')
+    $('.cover').css('display', 'none');
+     $('.grid, #buttonArrayInline, #screenOrnaments, .bglive').show();
+    $('.fader').attr('started', 'true');
+    enter.play(), //bgm.play()
+    $('.logoSplash').css({
+        'opacity': '0'
+    })
+}

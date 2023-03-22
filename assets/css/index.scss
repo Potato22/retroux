@@ -9,8 +9,8 @@
 .cover {
     position: absolute;
     background: black;
-    width: 1024px;
-    height: 768px;
+    width: var(--windowSizeX);
+    height: var(--windowSizeY);
     z-index: 100;
     color: white;
     font-family: var(--textUX);
@@ -19,8 +19,8 @@
 .fader {
     position: absolute;
     background: black;
-    width: 1024px;
-    height: 768px;
+    width: var(--windowSizeX);
+    height: var(--windowSizeY);
     z-index: 98;
     opacity: 1;
     pointer-events: none;
@@ -31,8 +31,8 @@
 .logoSplash {
     position: absolute;
     background: black;
-    width: 1024px;
-    height: 768px;
+    width: var(--windowSizeX);
+    height: var(--windowSizeY);
     z-index: 99;
     opacity: 1;
     pointer-events: none;
@@ -74,8 +74,8 @@
 
 .mainWindow {
     position: relative;
-    width: 1024px;
-    height: 768px;
+    width: var(--windowSizeX);
+    height: var(--windowSizeY);
     border: solid 1px;
     display: flex;
     flex-direction: column;
@@ -84,8 +84,8 @@
 
 .bglive {
     position: absolute;
-    width: 1024px;
-    height: 768px;
+    width: var(--windowSizeX);
+    height: var(--windowSizeY);
     background: white;
     z-index: -2;
     animation: bgliveRainbow calc(var(--tempo)*8) infinite linear;
@@ -119,7 +119,7 @@
     z-index: 1;
 }
 
-#menuButtons {
+.menuButtons {
     z-index: 1;
     padding-left: 3em;
     transition: all .20835s var(--easingDefault);
@@ -140,7 +140,7 @@
     align-items: flex-start;
 }
 
-#menuButtons>.buttonComponent {
+.menuButtons>.buttonComponent {
     &:nth-child(2) {
         margin-left: calc(var(--ladderLimit) * 1);
     }
@@ -185,6 +185,8 @@
 }
 
 .menuGameplay,
+.submenu-gameplay-where,
+.submenu-gameplay-accessibility,
 .menuAudio,
 .menuGameData,
 .menuAbout {
