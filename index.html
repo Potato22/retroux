@@ -92,6 +92,7 @@
             seconds then it should play automatically.
         </div>
         <div class="fader" started="false"></div>
+        <div class="monoFilter"></div>
         <div class="logoSplash" style="display: none;">
             <span class="logoDisc">Not affiliated with:</span>
             <svg class="dvilogo" width="241.29" height="241.29" enable-background="new 0 0 241.291 276.129"
@@ -196,25 +197,25 @@
 
                 <div class="menuButtons menuGameplay buttonEnter noladder">
                     <div button-state=false class="buttonComponent" buttonData="subButton" buttonInherit="gameplay"
-                        subButtonData="where">
-                        <div class="buttonText">Where game?</div>
-                        <svg class="menuButton" width="455.84" height="100.27" version="1.1" viewBox="0 0 120.61 26.53">
-                            <g transform="translate(-48.458 -55.241)">
-                                <path d="m48.808 55.591h36.179l5.2075 2.8655h67.347l11.175 8.2343v14.73h-119.91z" />
-                            </g>
-                        </svg>
-                        <div class="buttonHighlight"></div>
-                    </div>
-                    <div button-state=false class="buttonComponent" buttonData="subButton" buttonInherit="gameplay"
-                        subButtonData="accessibility">
-                        <div class="buttonText">Accessibility</div>
-                        <svg class="menuButton" width="455.84" height="100.27" version="1.1" viewBox="0 0 120.61 26.53">
-                            <g transform="translate(-48.458 -55.241)">
-                                <path d="m48.808 55.591h36.179l5.2075 2.8655h67.347l11.175 8.2343v14.73h-119.91z" />
-                            </g>
-                        </svg>
-                        <div class="buttonHighlight"></div>
-                    </div>
+                    subButtonData="accessibility">
+                    <div class="buttonText">Accessibility</div>
+                    <svg class="menuButton" width="455.84" height="100.27" version="1.1" viewBox="0 0 120.61 26.53">
+                        <g transform="translate(-48.458 -55.241)">
+                            <path d="m48.808 55.591h36.179l5.2075 2.8655h67.347l11.175 8.2343v14.73h-119.91z" />
+                        </g>
+                    </svg>
+                    <div class="buttonHighlight"></div>
+                </div>
+                <div button-state=false class="buttonComponent" buttonData="subButton" buttonInherit="gameplay"
+                    subButtonData="where">
+                    <div class="buttonText">Where game?</div>
+                    <svg class="menuButton" width="455.84" height="100.27" version="1.1" viewBox="0 0 120.61 26.53">
+                        <g transform="translate(-48.458 -55.241)">
+                            <path d="m48.808 55.591h36.179l5.2075 2.8655h67.347l11.175 8.2343v14.73h-119.91z" />
+                        </g>
+                    </svg>
+                    <div class="buttonHighlight"></div>
+                </div>
                     <div button-state=false class="buttonComponent" buttonData="apply" applyData="gameplay">
                         <div class="buttonText"><i>[OK]</i></div>
                         <svg class="menuButton" width="455.84" height="100.27" version="1.1" viewBox="0 0 120.61 26.53">
@@ -226,7 +227,7 @@
                     </div>
                 </div>
                 <div class="menuButtons submenuGameplayAccessibility buttonEnter noladder" style="display: none;">
-                    <div button-state=false class="buttonComponent toggleON" buttonData="mono" toggle=true toggleData = "mono" >
+                    <div button-state=false class="buttonComponent" buttonData="mono" toggle=true toggleData = "mono" mono="false" >
                         <div class="buttonText">Monochromatic</div>
                         <svg class="menuButton" width="455.84" height="100.27" version="1.1" viewBox="0 0 120.61 26.53">
                             <g transform="translate(-48.458 -55.241)">
@@ -235,8 +236,26 @@
                         </svg>
                         <div class="buttonHighlight highlightToggle" toggle-marker="true">ON</div>
                     </div>
-                    <div button-state=false class="buttonComponent toggleON" buttonData="noflashy" toggle=true toggleData = "noflashy">
+                    <div button-state=false class="buttonComponent" buttonData="noflashy" toggle=true toggleData = "noflashy">
                         <div class="buttonText">Less Flashy</div>
+                        <svg class="menuButton" width="455.84" height="100.27" version="1.1" viewBox="0 0 120.61 26.53">
+                            <g transform="translate(-48.458 -55.241)">
+                                <path d="m48.808 55.591h36.179l5.2075 2.8655h67.347l11.175 8.2343v14.73h-119.91z" />
+                            </g>
+                        </svg>
+                        <div class="buttonHighlight highlightToggle" toggle-marker="true">ON</div>
+                    </div>
+                    <div button-state=false class="buttonComponent" buttonData="notransition" toggle=true toggleData = "notransition">
+                        <div class="buttonText">No Transition</div>
+                        <svg class="menuButton" width="455.84" height="100.27" version="1.1" viewBox="0 0 120.61 26.53">
+                            <g transform="translate(-48.458 -55.241)">
+                                <path d="m48.808 55.591h36.179l5.2075 2.8655h67.347l11.175 8.2343v14.73h-119.91z" />
+                            </g>
+                        </svg>
+                        <div class="buttonHighlight highlightToggle" toggle-marker="true">ON</div>
+                    </div>
+                    <div button-state=false class="buttonComponent" buttonData="bigtext" toggle=true toggleData = "bigtext">
+                        <div class="buttonText">Big Text</div>
                         <svg class="menuButton" width="455.84" height="100.27" version="1.1" viewBox="0 0 120.61 26.53">
                             <g transform="translate(-48.458 -55.241)">
                                 <path d="m48.808 55.591h36.179l5.2075 2.8655h67.347l11.175 8.2343v14.73h-119.91z" />

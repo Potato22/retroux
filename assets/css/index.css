@@ -79,6 +79,16 @@
   flex-direction: column;
 }
 
+.monoFilter {
+  display: var(--monoFilterState);
+  position: absolute;
+  width: var(--windowSizeX);
+  height: var(--windowSizeY);
+  backdrop-filter: grayscale(10);
+  z-index: 102;
+  pointer-events: none;
+}
+
 .bglive {
   position: absolute;
   width: var(--windowSizeX);
@@ -118,9 +128,11 @@
 }
 
 .menuButtons {
+  position: relative;
   z-index: 1;
   padding-left: 3em;
   transition: all 0.20835s var(--easingDefault);
+  user-select: none;
 }
 
 .pageName {
@@ -133,9 +145,14 @@
 }
 
 #buttonArrayInline {
+  height: 585px;
+  overflow: scroll;
   margin-top: 1.5rem;
   display: flex;
   align-items: flex-start;
+}
+#buttonArrayInline::-webkit-scrollbar {
+  display: none;
 }
 
 .menuButtons > .buttonComponent:nth-child(2) {

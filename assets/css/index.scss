@@ -28,6 +28,7 @@
     opacity: 1;
     transition: all .4s .2s;
 }
+
 .logoSplash {
     position: absolute;
     background: black;
@@ -43,15 +44,18 @@
     justify-content: center;
     align-items: center;
 }
+
 .logoDisc {
     font-family: var(--textOrnament);
     animation: discFade 300ms 1.5s forwards;
     opacity: 0;
 }
+
 @keyframes discFade {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -82,6 +86,17 @@
     //justify-content: space-between;
 }
 
+.monoFilter {
+    display: var(--monoFilterState);
+    position: absolute;
+    width: var(--windowSizeX);
+    height: var(--windowSizeY);
+    backdrop-filter: grayscale(10);
+    z-index: 102;
+    pointer-events: none;
+}
+
+
 .bglive {
     position: absolute;
     width: var(--windowSizeX);
@@ -90,10 +105,12 @@
     z-index: -2;
     animation: bgliveRainbow calc(var(--tempo)*8) infinite linear;
 }
+
 @keyframes bgliveRainbow {
     from {
         filter: hue-rotate(0deg) brightness(1.5);
     }
+
     to {
         filter: hue-rotate(360deg) brightness(1.5);
     }
@@ -102,6 +119,7 @@
 #screenOrnaments {
     transition: all 180ms var(--easingDefault);
 }
+
 #sideOrnament {
     position: absolute;
     fill: black;
@@ -120,9 +138,11 @@
 }
 
 .menuButtons {
+    position: relative;
     z-index: 1;
     padding-left: 3em;
     transition: all .20835s var(--easingDefault);
+    user-select: none;
 }
 
 .pageName {
@@ -135,6 +155,11 @@
 }
 
 #buttonArrayInline {
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    height: 585px;
+    overflow: scroll;
     margin-top: 1.5rem;
     display: flex;
     align-items: flex-start;
@@ -157,28 +182,36 @@
         margin-left: calc(var(--ladderLimit) * 4);
     }
 }
+
 .buttonComponent {
     animation: var(--xWiggle);
+
     &:nth-child(1) {
         animation-delay: 0ms;
     }
+
     &:nth-child(2) {
         animation-delay: -300ms;
     }
+
     &:nth-child(3) {
         animation-delay: -600ms;
     }
+
     &:nth-child(4) {
         animation-delay: -1200ms;
     }
+
     &:nth-child(5) {
         animation-delay: -1700ms;
     }
 }
+
 @keyframes xWiggle {
     from {
         transform: translateX(0px);
     }
+
     50% {
         transform: translateX(3px)
     }

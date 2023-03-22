@@ -32,6 +32,7 @@ body {
   --inactiveStroke: white;
   --inactiveText: white;
   --highlightWidth: 80px;
+  --monoFilterState: none;
   --fps: steps(10);
   --tempo: .417s;
   --elementTransitionTimer: .20835s;
@@ -42,7 +43,7 @@ body {
   --flickerFill: fillFlicker .1s infinite;
   --buttonEvent: translate(-700px, 0);
   --ladderLimit: 7em;
-  --easingDefault: cubic-bezier(1, .09, .77, .99);
+  --easingDefault: cubic-bezier(.82,.2,.31,1);
   --xWiggle: xWiggle calc(var(--tempo)*4) infinite cubic-bezier(.5, 0, .5, 1);
 }
 
@@ -52,6 +53,20 @@ body {
   --inactiveText: rgb(49, 49, 49);
   --inactiveHighlight: translateX(0px);
   --buttonJump: jump .1s 1;
+}
+
+[mono=true] {
+  --monoFilterState: block;
+}
+
+[notransition=true] {
+  --buttonEvent: translate(0px, 0);
+  --easingDefault: ?;
+}
+
+[bigtext=true] {
+  --textUX: var(--textUX2);
+  text-transform: uppercase;
 }
 
 .toggleON .buttonHighlight {

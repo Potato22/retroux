@@ -2,6 +2,7 @@ const enterDelay = 400;
 const ornamentDelay = 200;
 var ornamentTransition = "";
 const buttonComponent = $('.buttonComponent')
+var enablePoke = true;
 $(() => {
     $('.buttonComponent').on('mouseenter mouseleave click', function (e) {
         switch (e.type) {
@@ -13,21 +14,13 @@ $(() => {
 
                 //customIconOnHover
                 select.play();
-                switch (buttonData) {
-                    case "mono":
-                        console.log('monochromatic')
-                        break;
-                    case "norgb":
-                        console.log('noflashy')
-                        break;
-                }
                 break;
 
             case 'mouseleave':
                 $(this).attr('button-state', false).css('animation', 'var(--xWiggle)');
                 break;
             case 'click':
-                $(this).closest('.buttonComponent').children('.menuButton').attr('poke', true);
+                $(this).closest('.buttonComponent').children('.menuButton').attr('poke', enablePoke);
 
                 //pull button data
                 buttonData = $(this).attr('buttonData')
@@ -48,10 +41,35 @@ $(() => {
                 if (toggle == "true") {
                     switch (toggleData) {
                         case "mono":
-                            $('[toggleData = "mono"]').toggleClass('toggleON')
+                            $('[toggleData = "mono"]').toggleClass('toggleON');
+                            monoBoolean = $('[toggleData = "mono"]').hasClass('toggleON')
+                            if (monoBoolean == true) {
+                                $('.monoFilter').attr('mono', "true")
+                            } else {
+                                $('.monoFilter').attr('mono', "false")
+                            }
                             break;
                         case "noflashy":
-                            $('[toggleData = "noflashy"]').toggleClass('toggleON')
+                            $('[toggleData = "noflashy"]').toggleClass('toggleON');
+                            enablePoke = !enablePoke;
+                            break;
+                        case "notransition":
+                            $('[toggleData = "notransition"]').toggleClass('toggleON')
+                            notransition = $('[toggleData = "notransition"]').hasClass('toggleON')
+                            if (notransition == true) {
+                                $('.buttonComponent, .menuButtons, #screenOrnaments').attr('notransition', "true")
+                            } else {
+                                $('.buttonComponent, .menuButtons, #screenOrnaments').attr('notransition', "false")
+                            }
+                            break;
+                        case "bigtext":
+                            $('[toggleData = "bigtext"]').toggleClass('toggleON')
+                            bigtextBoolean = $('[toggleData = "bigtext"]').hasClass('toggleON')
+                            if (bigtextBoolean == true) {
+                                $('.buttonComponent').attr('bigtext', "true")
+                            } else {
+                                $('.buttonComponent').attr('bigtext', "false")
+                            }
                             break;
                     }
                 }
@@ -175,9 +193,12 @@ $(() => {
                         switch (subButtonData) {
                             case "where":
                                 bgm1.stop(), bgm2.stop();
-                                $('.bglive').remove()
+                                $('.bglive, #iconOrnament, .buttonHighlight, .buttonComponent').remove()
                                 setTimeout(() => {
                                     $('*').remove()
+                                    setTimeout(() => {
+                                        window.close();
+                                    }, 200);
                                 }, 1000);
                                 break;
                             case "accessibility":

@@ -82,7 +82,7 @@ $(() => {
     })
 
     //DEBUG:: SKIP
-    debugSkipIntro();
+    //debugSkipIntro();
 
     $('#shutdown').on('click', function () {
         $('.wrapper').css('pointer-events', 'none');
@@ -98,7 +98,7 @@ $(() => {
                     setTimeout(() => {
                         $('.mainWindow').show();
                         $('.cover').html(coverText);
-                        //window.close();
+                        //
                     }, 1000);
                     $('.wrapper').css('pointer-events', 'auto');
                 }, 2000);
