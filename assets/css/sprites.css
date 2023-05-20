@@ -89,7 +89,9 @@
   font-size: 3.4rem;
   margin-left: 0.5em;
   margin-top: 0.2em;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 .buttonHighlight {
@@ -143,6 +145,4 @@
   100% {
     transform: rotate3d(0, 1, 0, 60deg);
   }
-}
-
-/*# sourceMappingURL=sprites.css.map */
+}/*# sourceMappingURL=sprites.css.map */

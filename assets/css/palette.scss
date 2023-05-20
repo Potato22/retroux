@@ -38,7 +38,12 @@ body {
     --monoFilterState: none;
     //animation
     --fps: steps(10);
-    --tempo: .417s;
+    --tempo: var(--songTempo3);
+
+    --songTempo1: .4167s;
+    --songTempo2: .4225s;
+    --songTempo3: .6316s;
+
     --elementTransitionTimer: .20835s;
     --inactiveHighlight: translateX(-70px);
     --brgb: bgRGB .5s infinite;

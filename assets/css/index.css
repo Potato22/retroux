@@ -84,7 +84,8 @@
   position: absolute;
   width: var(--windowSizeX);
   height: var(--windowSizeY);
-  backdrop-filter: grayscale(10);
+  -webkit-backdrop-filter: grayscale(10);
+          backdrop-filter: grayscale(10);
   z-index: 102;
   pointer-events: none;
 }
@@ -132,7 +133,9 @@
   z-index: 1;
   padding-left: 3em;
   transition: all 0.20835s var(--easingDefault);
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 .pageName {
@@ -140,7 +143,9 @@
   font-weight: 700;
   margin-left: 0.3em;
   font-size: 5rem;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   color: rgb(59, 59, 59);
 }
 
@@ -202,6 +207,4 @@
 .menuGameData,
 .menuAbout {
   display: none;
-}
-
-/*# sourceMappingURL=index.css.map */
+}/*# sourceMappingURL=index.css.map */

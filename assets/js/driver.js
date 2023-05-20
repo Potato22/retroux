@@ -1,4 +1,4 @@
-var bgmVol = .5
+var bgmVol = .6
 var sfxVol = 1
 const bgm1 = new Howl({
     src: ['assets/audio/lq/dv-i_configuration_bitcrush.ogg'],
@@ -11,6 +11,11 @@ const bgm2 = new Howl({
     volume: bgmVol
 })
 const bgm3 = new Howl({
+    src: ['assets/audio/lq/salsaverde.ogg'],
+    loop: true,
+    volume: bgmVol
+})
+const bgmS = new Howl({
     src: ['assets/audio/lq/dv-i_implementation_bitcrush.ogg'],
     loop: true,
     volume: bgmVol
@@ -39,7 +44,7 @@ const select = new Howl({
     volume: sfxVol
 })
 
-var bgm = bgm2
+var bgm = bgm3
 
 const warning = new Howl({
     src: ['assets/audio/lq/warning.ogg'],
@@ -79,11 +84,11 @@ $(() => {
                 }, 500);
             }, 300);
         }, 3000);
+        
     })
-
     //DEBUG:: SKIP
-    //debugSkipIntro();
-
+    debugSkipIntro();
+    
     $('#shutdown').on('click', function () {
         $('.wrapper').css('pointer-events', 'none');
         setTimeout(() => {
@@ -112,7 +117,7 @@ function debugSkipIntro () {
     $('.cover').css('display', 'none');
      $('.grid, #buttonArrayInline, #screenOrnaments, .bglive').show();
     $('.fader').attr('started', 'true');
-    enter.play(), //bgm.play()
+    enter.play(), bgm.play()
     $('.logoSplash').css({
         'opacity': '0'
     })
