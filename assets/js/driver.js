@@ -44,7 +44,7 @@ const select = new Howl({
     volume: sfxVol
 })
 
-var bgm = bgm3
+var bgm = bgm2
 
 const warning = new Howl({
     src: ['assets/audio/lq/warning.ogg'],

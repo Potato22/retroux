@@ -34,7 +34,7 @@ body {
   --highlightWidth: 80px;
   --monoFilterState: none;
   --fps: steps(10);
-  --tempo: var(--songTempo3);
+  --tempo: var(--songTempo2);
   --songTempo1: .4167s;
   --songTempo2: .4225s;
   --songTempo3: .6316s;
