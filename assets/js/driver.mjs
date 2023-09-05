@@ -36,7 +36,7 @@ $(() => {
 
     })
     //DEBUG:: SKIP
-    //debugSkipIntro();
+    debugSkipIntro();
 
     $('#shutdown').on('click', function () {
         $('.wrapper').css('pointer-events', 'none');

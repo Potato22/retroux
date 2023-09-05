@@ -1,15 +1,39 @@
-import updateVolumeValues from './soundVolHandler.mjs'; updateVolumeValues()
+import {
+    updateVolumeValues,
+    exportBgmVal
+} from './soundVolHandler.mjs';
+
 const enterDelay = 400;
 const ornamentDelay = 200;
 var ornamentTransition = "";
 const buttonComponent = $('.buttonComponent')
 var enablePoke = true;
+var buttonData = "";
+var buttonInherit = "";
+var subButtonData = "";
+var applyData = "";
+var toggle = "";
+var toggleData = "";
+var icon = "";
+var scenePageName = "";
+var sceneName = "";
+var prevSceneName = "";
+
+var monoBoolean = "";
+var enablePoke = "true";
+var notransition = "false";
+var bigtextBoolean = "";
+updateVolumeValues()
+exportBgmVal()
+console.log("exportBgmVal", exportBgmVal())
+
 $(() => {
+
     buttonComponent.on('mouseenter mouseleave click', function (e) {
         switch (e.type) {
             case 'mouseenter':
-                var buttonData = $(this).attr('buttonData')
-                var applyData = $(this).attr('applyData')
+                buttonData = $(this).attr('buttonData')
+                applyData = $(this).attr('applyData')
                 $(this).attr('button-state', true).css('animation', 'var(--buttonJump)');
                 //console.log('hovering ' + buttonData)
 
@@ -24,11 +48,11 @@ $(() => {
                 $(this).closest('.buttonComponent').children('.menuButton').attr('poke', enablePoke);
 
                 //pull button data
-                var buttonData = $(this).attr('buttonData')
-                var buttonInherit = $(this).attr('buttonInherit')
-                var subButtonData = $(this).attr('subButtonData')
-                var toggle = $(this).attr('toggle')
-                var toggleData = $(this).attr('toggleData')
+                buttonData = $(this).attr('buttonData')
+                buttonInherit = $(this).attr('buttonInherit')
+                subButtonData = $(this).attr('subButtonData')
+                toggle = $(this).attr('toggle')
+                toggleData = $(this).attr('toggleData')
 
                 console.log('buttonData= ' + buttonData, 'buttonInherit=', buttonInherit, 'subButtonData=', subButtonData, 'toggle=', toggle, 'toggleData=', toggleData)
                 setTimeout(() => {
@@ -39,7 +63,7 @@ $(() => {
                     case "apply":
                         cancel.play()
                         break;
-                
+
                     default:
                         enter.play();
                         break;
@@ -110,7 +134,7 @@ $(() => {
                 }, enterDelay);
                 break;
             case "audio":
-            console.log('scene', buttonData);
+                console.log('scene', buttonData);
                 icon = "boombox"
                 scenePageName = "AUDIO"
                 sceneName = ".menuAudio"
@@ -152,8 +176,10 @@ $(() => {
                 }, enterDelay);
                 break;
             case "apply":
+                console.log('exiting', applyData)
                 switch (applyData) {
                     case "gameplay":
+                        console.log('applying gameplay')
                         ornamentTransition = ""
                         prevSceneName = ".initMenu"
                         sceneName = ".menuGameplay"
@@ -180,6 +206,7 @@ $(() => {
                         prevSceneName = ".menuGameplay"
                         sceneName = ".submenuGameplayAccessibility"
                         break;
+
                 }
                 console.log('[APPLY]', ' sceneName=', sceneName, '->', 'prevSceneName=', prevSceneName)
                 $(sceneName).addClass('buttonEnter');
@@ -202,6 +229,7 @@ $(() => {
                 }, 200);
                 break;
             case "subButton":
+                console.log("sub", buttonInherit, '->', subButtonData)
                 switch (buttonInherit) {
                     case "gameplay":
                         switch (subButtonData) {
@@ -219,6 +247,7 @@ $(() => {
                                 sceneName = ".menuGameplay"
                                 $(sceneName).addClass('buttonEnter');
                                 sceneName = ".submenuGameplayAccessibility"
+                                console.log("sceneName", sceneName)
                                 setTimeout(() => {
                                     sceneEnter();
                                 }, enterDelay);
@@ -231,7 +260,6 @@ $(() => {
                         break;
                 }
                 break;
-
         }
 
 
@@ -289,32 +317,35 @@ $(() => {
     function unhideOrnaments() {
         $('#screenOrnaments').removeClass('hideOrnaments');
     }
-})
 
-function bgmChanger() {
-    switch (buttonData) {
-        case "audio":
-            bgm.fade(bgmVolumeValueDevide, 0 , 600)
-            setTimeout(() => {
-                bgm.stop()
-                bgm = bgm2
-                bgm.play()
-                bgm.fade(0, bgmVolumeValueDevide , 300)
-            }, 600);
-            break;
-        case "apply":
-
-            break;
+    function bgmChanger() {
+        updateVolumeValues()
+        switch (buttonData) {
+            case "audio":
+                bgm.fade((exportBgmVal()), 0, 600)
+                setTimeout(() => {
+                    bgm.stop()
+                    bgm = bgm2
+                    bgm.play()
+                    bgm.fade(0, (exportBgmVal()), 300)
+                    console.log("bgm", (exportBgmVal()))
+                }, 600);
+                break;
+            case "apply":
+                updateVolumeValues()
+                break;
+        }
     }
-}
 
-function bgmReturn() {
-    console.log("returning...")
-    bgm.fade(bgmVolumeValueDevide, 0 , 600)
-    setTimeout(() => {
-        bgm.stop()
-        bgm = bgm1
-        bgm.play()
-        bgm.fade(0, bgmVolumeValueDevide , 300)
-    }, 600);
-}
+    function bgmReturn() {
+        console.log("returning...")
+        bgm.fade((exportBgmVal()), 0, 600)
+        setTimeout(() => {
+            bgm.stop()
+            bgm = bgm1
+            bgm.play()
+            bgm.fade(0, (exportBgmVal()), 300)
+            console.log("bgm", (exportBgmVal()))
+        }, 600);
+    }
+})

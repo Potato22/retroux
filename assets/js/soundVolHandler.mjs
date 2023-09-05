@@ -7,21 +7,18 @@
 
     const bgmFill = document.querySelector(".bgm-volume .bar .bar-fill");
     const sfxFill = document.querySelector(".sfx-volume .bar .bar-fill");
+
+
     $('.volume-range.bgmVal').attr("value", bgmVol * 100)
     $('.volume-range.sfxVal').attr("value", sfxVol * 100)
 
-    // Get the current BGM volume value
-    const bgmVolumeValue = bgmRange.value;
-
-    // Get the current SFX volume value
-    const sfxVolumeValue = sfxRange.value;
 
     // Function to set the value for the BGM volume bar
     const setBGMValue = (value) => {
         bgmFill.style.width = value + "%";
         bgmRange.value = value; // Update the range input value
         bgmRange.dispatchEvent(new Event("change")); // Trigger change event
-        select.play();
+        click.play();
     };
 
     // Function to set the value for the SFX volume bar
@@ -29,23 +26,29 @@
         sfxFill.style.width = value + "%";
         sfxRange.value = value; // Update the range input value
         sfxRange.dispatchEvent(new Event("change")); // Trigger change event
-        select.play();
+        click.play();
     };
 
+    export function exportBgmVal() {
+        return bgmRange.value/100;
+    }
+
     // Function to update volume values in real-time
-    export default function updateVolumeValues() {
+    export function updateVolumeValues() {
+        
         const bgmVolumeValue = bgmRange.value;
         const sfxVolumeValue = sfxRange.value;
-        const bgmVolumeValueDevide =  bgmVolumeValue/100
-        const sfxVolumeValueDevide =  sfxVolumeValue/100
-        bgm.volume(bgmVolumeValueDevide);
-        select.volume(sfxVolumeValueDevide);
-        click.volume(sfxVolumeValueDevide);
-        enter.volume(sfxVolumeValueDevide);
-        cancel.volume(sfxVolumeValueDevide);
-        confirm.volume(sfxVolumeValueDevide);
-        confirm2.volume(sfxVolumeValueDevide);
-
+        const bgmVolCalc = bgmRange.value/100;
+        const sfxVolCalc = sfxRange.value/100;
+        bgm.volume(bgmVolCalc);
+        select.volume(sfxVolCalc);
+        click.volume(sfxVolCalc);
+        enter.volume(sfxVolCalc);
+        cancel.volume(sfxVolCalc);
+        confirm.volume(sfxVolCalc);
+        confirm2.volume(sfxVolCalc);
+        
+        console.log("BGM " + bgmVolumeValue / 100 + " | SFX " + sfxVolumeValue / 100)
         // Update the content of the BGM volume display element
         const bgmVolumeDisplay = document.querySelector(".bgm-volume .volVal");
         bgmVolumeDisplay.textContent = bgmVolumeValue;
@@ -53,11 +56,9 @@
         // Update the content of the SFX volume display element
         const sfxVolumeDisplay = document.querySelector(".sfx-volume .volVal");
         sfxVolumeDisplay.textContent = sfxVolumeValue;
-
-        console.log("BGM " + bgmVolumeValue/100 + " | SFX " + sfxVolumeValueDevide)
-
-        // You can perform any actions or update other variables as needed here
-    }; updateVolumeValues();
+        //checkVol();
+    };
+    updateVolumeValues();
 
     // Default values
     setBGMValue(bgmVol * 100);
@@ -99,6 +100,7 @@
             )
         );
     };
+
 
     let barStillDown = false;
 
