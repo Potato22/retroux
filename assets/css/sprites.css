@@ -1,5 +1,10 @@
-.dvilogo {
-  animation: dvi 1.5s forwards var(--easingDefault);
+.potto {
+  background: red;
+  width: 256px;
+  height: 256px;
+  background: url(../sprites/potto.webp);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 @keyframes dvi {
