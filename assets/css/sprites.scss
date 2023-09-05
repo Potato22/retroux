@@ -1,16 +1,19 @@
 .dvilogo {
     animation: dvi 1.5s forwards var(--easingDefault);
 }
+
 @keyframes dvi {
     from {
         opacity: 0;
         transform: scale(3.3);
     }
+
     to {
         opacity: 1;
         transform: scale(1);
     }
 }
+
 //icons
 .iconCircle {
     fill: var(--iconOrnament);
@@ -24,13 +27,13 @@
 //properties
 .iconSpinner {
     transform: rotate(0deg);
-    animation: iconSpinner var(--tempo) infinite linear;
+    animation: iconSpinner var(--spinner) infinite steps(15);
     opacity: 1;
 }
 
 .iconBoombox {
     transform: scale(1);
-    animation: iconBoombox var(--tempo) infinite linear;
+    animation: iconBoombox var(--boombox) infinite steps(5);
     opacity: 0;
 }
 
@@ -40,8 +43,8 @@
     stroke: var(--iconOrnament);
     stroke-dasharray: 53;
     stroke-dashoffset: 53;
-    animation: iconData var(--tempo) infinite alternate linear;
-    opacity:0;
+    opacity: 0;
+    animation: iconData var(--spinner) infinite alternate linear;
 }
 
 @keyframes iconSpinner {
@@ -58,6 +61,7 @@
     from {
         transform: scale(1);
     }
+
     80% {
         transform: scale(.8);
     }
@@ -81,6 +85,20 @@
     width: 500px;
     cursor: pointer;
     transition: all var(--elementTransitionTimer) var(--easingDefault);
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    width: 900px;
+    height: 400px;
+    margin-bottom: 1em;
+    background: var(--box);
+    border: solid 3px var(--boxOutline);
+    padding: 20px;
+    &:hover {
+        animation: borderRGB var(--boombox) infinite linear;
+    }
 }
 
 .menuButton {
@@ -109,11 +127,71 @@
     z-index: -1;
 }
 
+.volName {
+    color: var(--inactiveFill);
+    font-family: var(--textUX);
+    font-weight: 800;
+    font-size: 3em;
+}
+.volVal {
+    color: var(--inactiveFill);
+    font-family: var(--textUX);
+    font-weight: 800;
+    margin-left: 1rem;
+    font-size: 2em;
+    position: absolute;
+}
+.volume {
+    input[type=range] {
+        display: none;
+    }
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .icon-size {
+        font-size: 2rem;
+    }
+
+    .bar-hoverbox {
+        opacity: 1;
+        transition: opacity .2s;
+
+        &:hover .bar .bar-fill {
+            animation: flicker var(--boombox) steps(3) infinite;
+        }
+        &:hover .bar {
+               animation: outlineBeat var(--boombox) infinite steps(3);
+        }
+    }
+
+    .bar {
+        background: var(--inactiveFill);
+        height: 70px;
+        width: 890px;
+        overflow: hidden;
+        pointer-events: none;
+        border: solid 3px black;
+        display: flex;
+        align-items: center;
+
+        .bar-fill {
+            background: var(--bar);
+            width: 0%;
+            height: 100%;
+            background-clip: border-box;
+            pointer-events: none;
+        }
+    }
+}
+
+
 .grid {
     z-index: -5;
     transform: scale(2);
     transform-origin: center;
-    animation: fillRGB 15s infinite , randomTranslate 15.0012s infinite cubic-bezier(.31,.01,.7,.99); // random3d 7s infinite cubic-bezier(.72,-0.08,.23,1.09);
+    animation: fillRGB 15s infinite, randomTranslate 15.0012s infinite cubic-bezier(.31, .01, .7, .99); // random3d 7s infinite cubic-bezier(.72,-0.08,.23,1.09);
     --scale: 1.6;
 }
 
@@ -127,7 +205,7 @@
     }
 
     50% {
-        transform: translate(-200px, 170px) rotate3d(1, -1, 0, 25deg)  scale(var(--scale));
+        transform: translate(-200px, 170px) rotate3d(1, -1, 0, 25deg) scale(var(--scale));
     }
 
     75% {

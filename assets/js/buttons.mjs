@@ -1,14 +1,15 @@
+import updateVolumeValues from './soundVolHandler.mjs'; updateVolumeValues()
 const enterDelay = 400;
 const ornamentDelay = 200;
 var ornamentTransition = "";
 const buttonComponent = $('.buttonComponent')
 var enablePoke = true;
 $(() => {
-    $('.buttonComponent').on('mouseenter mouseleave click', function (e) {
+    buttonComponent.on('mouseenter mouseleave click', function (e) {
         switch (e.type) {
             case 'mouseenter':
-                buttonData = $(this).attr('buttonData')
-                applyData = $(this).attr('applyData')
+                var buttonData = $(this).attr('buttonData')
+                var applyData = $(this).attr('applyData')
                 $(this).attr('button-state', true).css('animation', 'var(--buttonJump)');
                 //console.log('hovering ' + buttonData)
 
@@ -23,21 +24,31 @@ $(() => {
                 $(this).closest('.buttonComponent').children('.menuButton').attr('poke', enablePoke);
 
                 //pull button data
-                buttonData = $(this).attr('buttonData')
-                buttonInherit = $(this).attr('buttonInherit')
-                subButtonData = $(this).attr('subButtonData')
-                toggle = $(this).attr('toggle')
-                toggleData = $(this).attr('toggleData')
+                var buttonData = $(this).attr('buttonData')
+                var buttonInherit = $(this).attr('buttonInherit')
+                var subButtonData = $(this).attr('subButtonData')
+                var toggle = $(this).attr('toggle')
+                var toggleData = $(this).attr('toggleData')
 
                 console.log('buttonData= ' + buttonData, 'buttonInherit=', buttonInherit, 'subButtonData=', subButtonData, 'toggle=', toggle, 'toggleData=', toggleData)
                 setTimeout(() => {
                     buttonEvent()
+                    bgmChanger()
                 }, 100);
-                enter.play();
+                switch (buttonData) {
+                    case "apply":
+                        cancel.play()
+                        break;
+                
+                    default:
+                        enter.play();
+                        break;
+                }
                 setTimeout(() => {
                     $('.menuButton').attr('poke', false);
                 }, 500);
 
+                //all settingsData
                 if (toggle == "true") {
                     switch (toggleData) {
                         case "mono":
@@ -66,10 +77,12 @@ $(() => {
                             $('[toggleData = "bigtext"]').toggleClass('toggleON')
                             bigtextBoolean = $('[toggleData = "bigtext"]').hasClass('toggleON')
                             if (bigtextBoolean == true) {
-                                $('.buttonComponent').attr('bigtext', "true")
+                                buttonComponent.attr('bigtext', "true")
                             } else {
-                                $('.buttonComponent').attr('bigtext', "false")
+                                buttonComponent.attr('bigtext', "false")
                             }
+                            break;
+                        case "bgmVol":
                             break;
                     }
                 }
@@ -97,7 +110,7 @@ $(() => {
                 }, enterDelay);
                 break;
             case "audio":
-                console.log('scene', buttonData);
+            console.log('scene', buttonData);
                 icon = "boombox"
                 scenePageName = "AUDIO"
                 sceneName = ".menuAudio"
@@ -150,6 +163,7 @@ $(() => {
                         prevSceneName = ".initMenu"
                         sceneName = ".menuAudio"
                         scenePageName = "SETTINGS"
+                        bgmReturn()
                         break;
                     case "gameData":
                         prevSceneName = ".initMenu"
@@ -276,3 +290,31 @@ $(() => {
         $('#screenOrnaments').removeClass('hideOrnaments');
     }
 })
+
+function bgmChanger() {
+    switch (buttonData) {
+        case "audio":
+            bgm.fade(bgmVolumeValueDevide, 0 , 600)
+            setTimeout(() => {
+                bgm.stop()
+                bgm = bgm2
+                bgm.play()
+                bgm.fade(0, bgmVolumeValueDevide , 300)
+            }, 600);
+            break;
+        case "apply":
+
+            break;
+    }
+}
+
+function bgmReturn() {
+    console.log("returning...")
+    bgm.fade(bgmVolumeValueDevide, 0 , 600)
+    setTimeout(() => {
+        bgm.stop()
+        bgm = bgm1
+        bgm.play()
+        bgm.fade(0, bgmVolumeValueDevide , 300)
+    }, 600);
+}

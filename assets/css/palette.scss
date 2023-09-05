@@ -36,12 +36,14 @@ body {
     --inactiveText: white;
     --highlightWidth: 80px;
     --monoFilterState: none;
+    --box: white;
+    --bar: rgb(212, 212, 212);
+    --boxOutline: black;
     //animation
     --fps: steps(10);
-    --songTempo1: .4167s;
-    --songTempo2: .4225s;
+    --spinner: .480s;
+    --boombox: .469s;
     --songTempo3: .6316s;
-    --tempo: var(--songTempo2);
 
     --elementTransitionTimer: .20835s;
     --inactiveHighlight: translateX(-70px);
@@ -52,7 +54,7 @@ body {
     --buttonEvent: translate(-700px, 0);
     --ladderLimit: 7em;
     --easingDefault: cubic-bezier(.82,.2,.31,1);
-    --xWiggle: xWiggle calc(var(--tempo)*4) infinite cubic-bezier(.5, 0, .5, 1);
+    --xWiggle: xWiggle calc(var(--spinner)*4) infinite cubic-bezier(.5, 0, .5, 1);
 }
 
 [button-state=true] {
@@ -159,7 +161,24 @@ body {
         fill: rgb(53, 53, 53);
     }
 }
+@keyframes flicker {
+    0% {
+        background: white;
+    }
 
+    50% {
+        background: rgb(185, 185, 185);
+    }
+}
+@keyframes outlineBeat {
+    from {
+        border-color: rgb(216, 216, 216);
+    }
+
+    to {
+        border-color: black;
+    }
+}
 @keyframes bgRGB {
     0% {
         background: rgb(255, 42, 42);
@@ -195,6 +214,43 @@ body {
 
     100% {
         background: rgb(255, 42, 42);
+    }
+}
+@keyframes borderRGB {
+    0% {
+        border-color: rgb(255, 42, 42);
+    }
+
+    11% {
+        border-color: rgb(255, 158, 67);
+    }
+
+    22% {
+        border-color: rgb(255, 228, 73);
+    }
+
+    33% {
+        border-color: rgb(109, 255, 73);
+    }
+
+    50% {
+        border-color: rgb(104, 232, 255);
+    }
+
+    66% {
+        border-color: rgb(72, 90, 255);
+    }
+
+    77% {
+        border-color: rgb(195, 44, 255);
+    }
+
+    88% {
+        border-color: rgb(255, 68, 155);
+    }
+
+    100% {
+        border-color: rgb(255, 42, 42);
     }
 }
 

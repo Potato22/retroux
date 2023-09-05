@@ -23,13 +23,13 @@
 
 .iconSpinner {
   transform: rotate(0deg);
-  animation: iconSpinner var(--tempo) infinite linear;
+  animation: iconSpinner var(--spinner) infinite steps(15);
   opacity: 1;
 }
 
 .iconBoombox {
   transform: scale(1);
-  animation: iconBoombox var(--tempo) infinite linear;
+  animation: iconBoombox var(--boombox) infinite steps(5);
   opacity: 0;
 }
 
@@ -39,8 +39,8 @@
   stroke: var(--iconOrnament);
   stroke-dasharray: 53;
   stroke-dashoffset: 53;
-  animation: iconData var(--tempo) infinite alternate linear;
   opacity: 0;
+  animation: iconData var(--spinner) infinite alternate linear;
 }
 
 @keyframes iconSpinner {
@@ -76,6 +76,20 @@
   transition: all var(--elementTransitionTimer) var(--easingDefault);
 }
 
+.box {
+  display: flex;
+  flex-direction: column;
+  width: 900px;
+  height: 400px;
+  margin-bottom: 1em;
+  background: var(--box);
+  border: solid 3px var(--boxOutline);
+  padding: 20px;
+}
+.box:hover {
+  animation: borderRGB var(--boombox) infinite linear;
+}
+
 .menuButton {
   stroke-width: 0.7;
   stroke: var(--inactiveStroke);
@@ -102,6 +116,61 @@
   margin-left: -4em;
   margin-top: 0.3em;
   z-index: -1;
+}
+
+.volName {
+  color: var(--inactiveFill);
+  font-family: var(--textUX);
+  font-weight: 800;
+  font-size: 3em;
+}
+
+.volVal {
+  color: var(--inactiveFill);
+  font-family: var(--textUX);
+  font-weight: 800;
+  margin-left: 1rem;
+  font-size: 2em;
+  position: absolute;
+}
+
+.volume {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.volume input[type=range] {
+  display: none;
+}
+.volume .icon-size {
+  font-size: 2rem;
+}
+.volume .bar-hoverbox {
+  opacity: 1;
+  transition: opacity 0.2s;
+}
+.volume .bar-hoverbox:hover .bar .bar-fill {
+  animation: flicker var(--boombox) steps(3) infinite;
+}
+.volume .bar-hoverbox:hover .bar {
+  animation: outlineBeat var(--boombox) infinite steps(3);
+}
+.volume .bar {
+  background: var(--inactiveFill);
+  height: 70px;
+  width: 890px;
+  overflow: hidden;
+  pointer-events: none;
+  border: solid 3px black;
+  display: flex;
+  align-items: center;
+}
+.volume .bar .bar-fill {
+  background: var(--bar);
+  width: 0%;
+  height: 100%;
+  background-clip: border-box;
+  pointer-events: none;
 }
 
 .grid {
