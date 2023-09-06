@@ -38,7 +38,7 @@
 
 .iconBoombox {
     transform: scale(1);
-    animation: iconBoombox var(--boombox) infinite steps(5);
+    animation: iconBoombox var(--boombox) var(--boombox) infinite steps(5);
     opacity: 0;
 }
 
@@ -64,11 +64,11 @@
 
 @keyframes iconBoombox {
     from {
-        transform: scale(.8);
+        transform: scale(1);
     }
 
-    80% {
-        transform: scale(1);
+    90% {
+        transform: scale(.8);
     }
 }
 

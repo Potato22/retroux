@@ -92,6 +92,7 @@
         </div>
         <div class="fader" started="false"></div>
         <div class="monoFilter"></div>
+        <div class="darkFilter"></div>
         <div class="logoSplash" style="display: none;">
             <div class="potto"></div>
             <!-- <span class="logoDisc">Not affiliated with:</span>
@@ -106,10 +107,10 @@
             </svg> -->
         </div>
         <div class="mainWindow">
-            <video autoplay muted loop class="bglive">
+            <video autoplay muted loop class="bglive light" dark="false">
                 <source class="bglivesrc" src="./assets/sprites/grid60.webm" type="video/webm">
             </video>
-            <div id="screenOrnaments">
+            <div id="screenOrnaments" dark="false">
                 <svg id="sideOrnament" width="94.227" height="768" version="1.1" viewBox="0 0 24.931 203.2">
                     <g transform="matrix(1,0,0,1.0005,-97.165,8.3182)">
                         <path d="m97.165-8.3141h24.931c-18.087 2.9276-22.501 16.981-22.501 33.646v169.55h-2.43z" />
@@ -143,7 +144,7 @@
                                 d="m79.902 92.999c4.6558 0 8.43 3.7742 8.43 8.43 0 4.6558-3.7742 8.43-8.43 8.43-4.6558 0-8.43-3.7742-8.43-8.43 0-4.6558 3.7742-8.43 8.43-8.43" />
                         </g>
                     </svg>
-                    <div class="pageName">SETTINGS</div>
+                    <div class="pageName light">SETTINGS</div>
                 </div>
             </div>
             <div id="buttonArrayInline">
@@ -260,9 +261,9 @@
                         </svg>
                         <div class="buttonHighlight highlightToggle" toggle-marker="true">ON</div>
                     </div>
-                    <div button-state=false class="buttonComponent" buttonData="bigtext" toggle=true
-                        toggleData="bigtext">
-                        <div class="buttonText">Big Text</div>
+                    <div button-state=false class="buttonComponent" buttonData="dark" toggle=true
+                        toggleData="dark">
+                        <div class="buttonText">D A R K</div>
                         <svg class="menuButton" width="455.84" height="100.27" version="1.1" viewBox="0 0 120.61 26.53">
                             <g transform="translate(-48.458 -55.241)">
                                 <path d="m48.808 55.591h36.179l5.2075 2.8655h67.347l11.175 8.2343v14.73h-119.91z" />

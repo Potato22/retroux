@@ -33,9 +33,13 @@ body {
   --inactiveText: white;
   --highlightWidth: 80px;
   --monoFilterState: none;
+  --darkFilterState: none;
   --box: white;
   --bar: rgb(212, 212, 212);
   --boxOutline: black;
+  --pageName: rgb(59, 59, 59);
+  --black: black;
+  --white: white;
   --fps: steps(10);
   --spinner: .480s;
   --boombox: .469s;
@@ -53,6 +57,9 @@ body {
 }
 
 [button-state=true] {
+  --box: black;
+  --bar: rgb(80, 80, 80);
+  --boxOutline: black;
   --inactiveFill: rgb(241, 241, 241);
   --inactiveStroke: rgb(0, 0, 0);
   --inactiveText: rgb(49, 49, 49);
@@ -64,16 +71,23 @@ body {
   --monoFilterState: block;
 }
 
+[dark=true] {
+  --darkFilterState: block;
+}
+
 [notransition=true] {
   --buttonEvent: translate(0px, 0);
   --easingDefault: ?;
 }
 
-[bigtext=true] {
-  --textUX: var(--textUX2);
-  text-transform: uppercase;
+/*
+[dark=true] {
+    --iconOrnament: rgb(218, 218, 218);
+    --black: white;
+    --white: black;
+    --pageName: rgb(230, 230, 230);
 }
-
+*/
 .toggleON .buttonHighlight {
   position: absolute;
   --inactiveHighlight: translateX(0px);

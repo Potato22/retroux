@@ -1,6 +1,36 @@
-$(() => {
+const coverText = "Click again to restart."
+var enablePoke = "true";
 
-    const coverText = "Click again to restart."
+function recallAllSettings() {
+    //D A R K
+    let darkBoolean = $('[toggleData = "dark"]').hasClass('toggleON')
+    if (darkBoolean == true) {
+        $('.darkFilter').attr('dark', "true")
+    } else {
+        $('.darkFilter').attr('dark', "false")
+    }
+
+    //No Transition
+    let notransition = $('[toggleData = "notransition"]').hasClass('toggleON')
+    if (notransition == true) {
+        $('.buttonComponent, .menuButtons, #screenOrnaments').attr('notransition', "true")
+    } else {
+        $('.buttonComponent, .menuButtons, #screenOrnaments').attr('notransition', "false")
+    }
+
+    //Less Flashy
+    enablePoke = !enablePoke;
+
+    //monochromatic
+    var monoBoolean = $('[toggleData = "mono"]').hasClass('toggleON')
+    if (monoBoolean == true) {
+        $('.monoFilter').attr('mono', "true")
+    } else {
+        $('.monoFilter').attr('mono', "false")
+    }
+}
+
+$(() => {
 
     console.log('READY [OK]')
     $('.grid, #buttonArrayInline, #screenOrnaments, .bglive').hide();
@@ -26,6 +56,7 @@ $(() => {
                     'opacity': '0'
                 })
                 setTimeout(() => {
+                    recallAllSettings()
                     $('.fader').attr('started', 'true');
                     $('.logoSplash').hide();
                     $('.grid, #buttonArrayInline, #screenOrnaments, .bglive').show();
@@ -43,6 +74,11 @@ $(() => {
         setTimeout(() => {
             $('.fader').attr('started', 'false');
             setTimeout(() => {
+                $('.darkFilter').attr('dark', "false")
+                $('.monoFilter').attr('mono', "false")
+                $('.buttonComponent, .menuButtons, #screenOrnaments').attr('notransition', "false")
+                enablePoke = !enablePoke;
+
                 $('.grid, #buttonArrayInline, #screenOrnaments, .bglive').hide();
                 $('.cover').css('display', 'block').html(' Terminated!');
                 bgm.stop();

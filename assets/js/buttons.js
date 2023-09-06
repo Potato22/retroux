@@ -7,6 +7,7 @@ const enterDelay = 400;
 const ornamentDelay = 200;
 var ornamentTransition = "";
 const buttonComponent = $('.buttonComponent')
+const bglive = $('.bglive')
 var enablePoke = true;
 var buttonData = "";
 var buttonInherit = "";
@@ -22,7 +23,7 @@ var prevSceneName = "";
 var monoBoolean = "";
 var enablePoke = "true";
 var notransition = "false";
-var bigtextBoolean = "";
+var darkBoolean = "";
 updateVolumeValues()
 exportBgmVal()
 console.log("exportBgmVal", exportBgmVal())
@@ -97,13 +98,13 @@ $(() => {
                                 $('.buttonComponent, .menuButtons, #screenOrnaments').attr('notransition', "false")
                             }
                             break;
-                        case "bigtext":
-                            $('[toggleData = "bigtext"]').toggleClass('toggleON')
-                            bigtextBoolean = $('[toggleData = "bigtext"]').hasClass('toggleON')
-                            if (bigtextBoolean == true) {
-                                buttonComponent.attr('bigtext', "true")
+                        case "dark":
+                            $('[toggleData = "dark"]').toggleClass('toggleON')
+                            darkBoolean = $('[toggleData = "dark"]').hasClass('toggleON')
+                            if (darkBoolean == true) {
+                                $('.darkFilter').attr('dark', "true")
                             } else {
-                                buttonComponent.attr('bigtext', "false")
+                                $('.darkFilter').attr('dark', "false")
                             }
                             break;
                         case "bgmVol":
@@ -333,19 +334,21 @@ $(() => {
                 break;
             case "apply":
                 updateVolumeValues()
+                if (applyData =~ "audio") {
+                    break
+                } else { bgm.fade((exportBgmVal()), 0, 300) }
                 break;
         }
     }
 
     function bgmReturn() {
-        console.log("returning...")
-        bgm.fade((exportBgmVal()), 0, 600)
+        console.log("returning to bgm1...")
         setTimeout(() => {
             bgm.stop()
             bgm = bgm1
             bgm.play()
             bgm.fade(0, (exportBgmVal()), 300)
             console.log("bgm", (exportBgmVal()))
-        }, 600);
+        }, 300);
     }
 })

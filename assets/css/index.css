@@ -90,21 +90,45 @@
   pointer-events: none;
 }
 
+.darkFilter {
+  display: var(--darkFilterState);
+  position: absolute;
+  width: var(--windowSizeX);
+  height: var(--windowSizeY);
+  -webkit-backdrop-filter: invert(1) brightness(1.3);
+          backdrop-filter: invert(1) brightness(1.3);
+  z-index: 102;
+  pointer-events: none;
+}
+
 .bglive {
   position: absolute;
   width: var(--windowSizeX);
   height: var(--windowSizeY);
   background: white;
   z-index: -2;
-  animation: bgliveRainbow calc(var(--tempo) * 8) infinite linear;
+}
+.bglive.dark {
+  animation: bgliveDark 10s infinite linear;
+}
+.bglive.light {
+  animation: bglive 10s infinite linear;
 }
 
-@keyframes bgliveRainbow {
+@keyframes bglive {
   from {
     filter: hue-rotate(0deg) brightness(1.5);
   }
   to {
     filter: hue-rotate(360deg) brightness(1.5);
+  }
+}
+@keyframes bgliveDark {
+  from {
+    filter: hue-rotate(0deg) brightness(1.5) invert(1);
+  }
+  to {
+    filter: hue-rotate(360deg) brightness(1.5) invert(1);
   }
 }
 #screenOrnaments {
@@ -113,7 +137,7 @@
 
 #sideOrnament {
   position: absolute;
-  fill: black;
+  fill: var(--black);
   z-index: 2;
   margin-left: -0.1em;
   transform: scaleY(1.01);
@@ -146,7 +170,7 @@
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
-  color: rgb(59, 59, 59);
+  color: var(--pageName);
 }
 
 #buttonArrayInline {
