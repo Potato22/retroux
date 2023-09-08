@@ -11,7 +11,12 @@ const bgm2 = new Howl({
     volume: bgmVol
 })
 const bgm3 = new Howl({
-    src: ['assets/audio/lq/salsaverde.ogg'],
+    src: ['assets/audio/lq/turn me on x modern life resample extended.ogg'],
+    loop: true,
+    volume: bgmVol
+})
+const bgm4 = new Howl({
+    src: ['assets/audio/lq/dv-i_logo_bitcrush.ogg'],
     loop: true,
     volume: bgmVol
 })
@@ -51,4 +56,5 @@ const warning = new Howl({
     src: ['assets/audio/lq/warning.ogg'],
     volume: sfxVol
 })
-var bgm = bgm1
+var bgmDefault = bgm4
+var bgm = bgmDefault

@@ -58,7 +58,6 @@ $(() => {
                 console.log('buttonData= ' + buttonData, 'buttonInherit=', buttonInherit, 'subButtonData=', subButtonData, 'toggle=', toggle, 'toggleData=', toggleData)
                 setTimeout(() => {
                     buttonEvent()
-                    bgmChanger()
                 }, 100);
                 switch (buttonData) {
                     case "apply":
@@ -102,8 +101,12 @@ $(() => {
                             $('[toggleData = "dark"]').toggleClass('toggleON')
                             darkBoolean = $('[toggleData = "dark"]').hasClass('toggleON')
                             if (darkBoolean == true) {
+                                bgmDefault = bgm1
+                                bgmChanger(1)
                                 $('.darkFilter').attr('dark', "true")
                             } else {
+                                bgmDefault = bgm4
+                                bgmChanger(0)
                                 $('.darkFilter').attr('dark', "false")
                             }
                             break;
@@ -147,6 +150,11 @@ $(() => {
                 setTimeout(() => {
                     sceneEnter();
                 }, enterDelay);
+                if (darkBoolean == true) {
+                    bgmChanger(5)
+                } else {
+                    bgmChanger(3)
+                }
                 break;
             case "gameData":
                 console.log('scene', buttonData);
@@ -190,7 +198,7 @@ $(() => {
                         prevSceneName = ".initMenu"
                         sceneName = ".menuAudio"
                         scenePageName = "SETTINGS"
-                        bgmReturn()
+                        bgmChanger(0)
                         break;
                     case "gameData":
                         prevSceneName = ".initMenu"
@@ -319,36 +327,58 @@ $(() => {
         $('#screenOrnaments').removeClass('hideOrnaments');
     }
 
-    function bgmChanger() {
+    function bgmChanger(bgmTarget) {
         updateVolumeValues()
-        switch (buttonData) {
-            case "audio":
-                bgm.fade((exportBgmVal()), 0, 600)
-                setTimeout(() => {
+        console.log("changing to bgm", bgmTarget, "...")
+        bgm.fade((exportBgmVal()), 0, 600)
+        setTimeout(() => {
+            switch (bgmTarget) {
+                case 0:
+                    bgm.stop()
+                    bgm = bgmDefault
+                    bgm.play()
+                    bgm.fade(0, (exportBgmVal()), 300)
+                    console.log("bgm", (exportBgmVal()))
+                    break;
+                case 1:
+                    bgm.stop()
+                    bgm = bgm1
+                    bgm.play()
+                    bgm.fade(0, (exportBgmVal()), 300)
+                    console.log("bgm", (exportBgmVal()))
+                    break;
+                case 2:
                     bgm.stop()
                     bgm = bgm2
                     bgm.play()
                     bgm.fade(0, (exportBgmVal()), 300)
                     console.log("bgm", (exportBgmVal()))
-                }, 600);
-                break;
-            case "apply":
-                updateVolumeValues()
-                if (applyData =~ "audio") {
-                    break
-                } else { bgm.fade((exportBgmVal()), 0, 300) }
-                break;
-        }
-    }
+                    break;
+                case 3:
+                    bgm.stop()
+                    bgm = bgm3
+                    bgm.play()
+                    bgm.fade(0, (exportBgmVal()), 300)
+                    console.log("bgm", (exportBgmVal()))
+                    break;
+                case 4:
+                    bgm.stop()
+                    bgm = bgm4
+                    bgm.play()
+                    bgm.fade(0, (exportBgmVal()), 300)
+                    console.log("bgm", (exportBgmVal()))
+                    break;
+                case 5:
+                    bgm.stop()
+                    bgm = bgmS
+                    bgm.play()
+                    bgm.fade(0, (exportBgmVal()), 300)
+                    console.log("bgm", (exportBgmVal()))
+                    break;
 
-    function bgmReturn() {
-        console.log("returning to bgm1...")
-        setTimeout(() => {
-            bgm.stop()
-            bgm = bgm1
-            bgm.play()
-            bgm.fade(0, (exportBgmVal()), 300)
-            console.log("bgm", (exportBgmVal()))
-        }, 300);
+                default:
+                    break;
+            }
+        }, 600);
     }
 })
