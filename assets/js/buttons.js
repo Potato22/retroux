@@ -167,6 +167,7 @@ $(() => {
                     hideOrnaments();
                 }, ornamentDelay);
                 setTimeout(() => {
+                    centerButtons(true)
                     sceneEnter();
                 }, enterDelay);
                 break;
@@ -234,6 +235,7 @@ $(() => {
                         $(prevSceneName).removeClass('buttonEnter')
                         unhideOrnaments();
                         $('.pageName').html(scenePageName)
+                        centerButtons(false)
                     }, 200);
                 }, 200);
                 break;
@@ -326,6 +328,15 @@ $(() => {
     function unhideOrnaments() {
         $('#screenOrnaments').removeClass('hideOrnaments');
     }
+
+    function centerButtons(state) {
+        if (state == true) {
+            $('#buttonArrayInline').addClass('centerButtons');
+        } else {
+            $('#buttonArrayInline').removeClass('centerButtons');
+        }
+    }
+
 
     function bgmChanger(bgmTarget) {
         updateVolumeValues()

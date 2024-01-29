@@ -227,6 +227,9 @@
         animation-delay: -1700ms;
     }
 }
+.gameDataMode {
+    width: 736px !important;
+}
 
 @keyframes xWiggle {
     from {
@@ -237,7 +240,15 @@
         transform: translateX(3px)
     }
 }
-
+.midAlign {
+    padding: 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.centerButtons {
+    justify-content: center !important;
+}
 .menuGameplay,
 .submenu-gameplay-where,
 .submenu-gameplay-accessibility,

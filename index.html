@@ -28,7 +28,7 @@
     <script src="assets/js/buttons.js" type="module" defer></script>
     <!-- <script src="assets/js/soundVolHandler.mjs" type="module"></script> -->
     <script src="assets/js/driver.mjs" type="module"></script>
-    
+
     <script defer>
         var readyState = false
         minload();
@@ -147,7 +147,7 @@
                     <div class="pageName light">SETTINGS</div>
                 </div>
             </div>
-            <div id="buttonArrayInline">
+            <div id="buttonArrayInline" class="">
                 <div class="menuButtons initMenu">
                     <div button-state=false class="buttonComponent" buttonData="gameplay">
                         <div class="buttonText">GAMEPLAY</div>
@@ -261,8 +261,7 @@
                         </svg>
                         <div class="buttonHighlight highlightToggle" toggle-marker="true">ON</div>
                     </div>
-                    <div button-state=false class="buttonComponent" buttonData="dark" toggle=true
-                        toggleData="dark">
+                    <div button-state=false class="buttonComponent" buttonData="dark" toggle=true toggleData="dark">
                         <div class="buttonText">D A R K</div>
                         <svg class="menuButton" width="455.84" height="100.27" version="1.1" viewBox="0 0 120.61 26.53">
                             <g transform="translate(-48.458 -55.241)">
@@ -320,9 +319,28 @@
                     </div>
                 </div>
                 <!-- GAME DATA -->
-                <div class="menuButtons menuGameData buttonEnter">
-                    <div button-state=false class="buttonComponent" buttonData="?">
-                        <div class="buttonText">placeholder</div>
+                <div class="menuButtons menuGameData buttonEnter midAlign noladder">
+                    <div button-state=false class="buttonComponent gameDataMode" buttonData="subButton" buttonInherit="gameData"
+                        subButtonData="accessibility">
+                        <div class="dataCardPercent buttonText">
+                            <div class="dataPercentage"></div>
+                            <div class="progress">100</div>
+                            <div class="dataPercentageNotation">%</div>
+                        </div>
+                        <div class="dataName buttonText">
+                            <div class="dataSlot">SLOT1</div>
+                            <div class="dataChapter">M20 - DETHRONE</div>
+                        </div>
+                        <svg class="menuButton " width="1159.5341" height="267" version="1.1"
+                            viewBox="0 0 306.78901 70.644">
+                            <path
+                                d="M 0.5220551,0.52554628 V 70.119204 H 306.26695 V 11.615189 L 295.37868,0.52479628 Z" />
+                        </svg>
+
+                        <div class="buttonHighlight"></div>
+                    </div>
+                    <div button-state=false class="buttonComponent" buttonData="subButton" buttonInherit="gameData"
+                        subButtonData="where">
                         <svg class="menuButton" width="455.84" height="100.27" version="1.1" viewBox="0 0 120.61 26.53">
                             <g transform="translate(-48.458 -55.241)">
                                 <path d="m48.808 55.591h36.179l5.2075 2.8655h67.347l11.175 8.2343v14.73h-119.91z" />

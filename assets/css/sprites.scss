@@ -52,6 +52,7 @@
     animation: iconData var(--spinner) infinite alternate linear;
 }
 
+
 @keyframes iconSpinner {
     from {
         transform: rotate(0deg);
@@ -191,6 +192,36 @@
     }
 }
 
+.dataCardPercent {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: .8rem;
+    color: var(--inactiveText);
+}
+.dataPercentage {
+    background: red;
+    --scale: 125px;
+    width: var(--scale);
+    height: var(--scale);
+    color: var(--inactiveText);
+}
+.progress {
+    position: absolute;
+    transform: translate(0px, -12px);
+    text-align: center;
+    font-size: 1.5em;
+    color: var(--inactiveText);
+}
+.dataPercentageNotation {
+    transform: translateY(10px);
+}
+.dataName {
+    padding-left: 12rem;
+    & .dataSlot {
+        font-size: 1.7em;
+        line-height: .8;
+    }
+}
 
 .grid {
     z-index: -5;

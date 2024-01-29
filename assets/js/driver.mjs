@@ -67,7 +67,7 @@ $(() => {
 
     })
     //DEBUG:: SKIP
-    //debugSkipIntro();
+    debugSkipIntro();
 
     $('#shutdown').on('click', function () {
         $('.wrapper').css('pointer-events', 'none');
@@ -103,7 +103,7 @@ function debugSkipIntro() {
     $('.cover').css('display', 'none');
     $('.grid, #buttonArrayInline, #screenOrnaments, .bglive').show();
     $('.fader').attr('started', 'true');
-    enter.play(), bgm.play()
+    enter.play(), //bgm.play()
     $('.logoSplash').css({
         'opacity': '0'
     })
